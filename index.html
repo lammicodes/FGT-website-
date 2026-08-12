@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furtu General Trading (FGT)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen pb-12">
+
+  <!-- Header -->
+  <header class="bg-amber-600 text-white p-4 shadow-lg sticky top-0 z-50 flex justify-between items-center">
+    <h1 class="font-bold text-xl tracking-wide flex items-center gap-2">
+      <i class="fa-solid fa-graduation-cap"></i> FGT - Furtu General Trading
+    </h1>
+  </header>
+
+  <main class="max-w-xl mx-auto p-4 space-y-6">
+
+    <!-- PAGE 1: LANDING & ABOUT -->
+    <section id="section-about" class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 text-center space-y-4">
+      <h2 class="text-2xl font-extrabold text-amber-900">
+        Welcome to FGT! <br>
+        <span class="text-lg italic font-normal text-amber-700">Baga Nagaan Dhuftan!</span>
+      </h2>
+      
+      <p class="text-gray-700 text-sm leading-relaxed">
+        FGT (Furtu General Trading) provides high-quality Educational Services (Tutoring & any writing like Research, Assignment, etc.), Various Trainings, and Advertising Services. Choosing FGT services means your work is fast and your success is near. <br>
+        <strong class="text-amber-800">If FGT is your first choice, it is your correct and active field of success!</strong>
+      </p>
+
+      <p class="text-gray-500 text-xs italic leading-relaxed border-t pt-3">
+        FGTn tajaajila barnootaa (Tutoring and any writing like Research, Assignment, etc), leenjiiwan adda addaa (Training), fi beeksisa (Advertising) qulqullina olaanaa qabu isiniif dhiyeessina. Filannoon keessan tajaajiloota FGT yoo tahu hojiin keessan saffisaa, milkaayinni keessan dhiyoodha. <br>
+        <strong class="text-amber-800">FGTn yoo filannoo keessan jalqabaa ta'e, Isiniif dirreen milkaayinaa sirrii fi si'aawaa!</strong>
+      </p>
+
+      <button onclick="showSection('section-services-list')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-2">
+        <span>Lists of Services We Offer</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- PAGE 2: LIST OF SERVICES OFFERED -->
+    <section id="section-services-list" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">
+        Services We Offer <br>
+        <span class="text-sm italic font-normal text-amber-700">Tajaajiloota Nu Dhiyeessinu</span>
+      </h3>
+
+      <div class="space-y-3 text-sm font-medium text-gray-700">
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-book-open text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">1. Tutoring Services (Online & Physical)</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Barnootaa (Online & Qaamaan)</p>
+          </div>
+        </div>
+
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-chalkboard-user text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">2. Training Services (Online Only)</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Leenjii (Online Qofa)</p>
+          </div>
+        </div>
+
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-bullhorn text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">3. Advertising Services</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Beeksisaa</p>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="showSection('section-select-service')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-2 mt-4">
+        <span>Select the Service You Need</span>
+        <i class="fa-solid fa-check-double"></i>
+      </button>
+    </section>
+
+    <!-- PAGE 3: SELECT SERVICE -->
+    <section id="section-select-service" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-services-list')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">
+        Select the Service You Need <br>
+        <span class="text-sm italic font-normal text-amber-700">Tajaajila Barbaaddan Filadhaa</span>
+      </h3>
+
+      <div class="space-y-3">
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="tutoring" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('tutoring')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Tutoring Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Barnootaa</span>
+          </div>
+        </label>
+
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="training" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('training')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Training Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Leenjii</span>
+          </div>
+        </label>
+
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="advertising" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('advertising')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Advertising Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Beeksisaa</span>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <!-- ================= TUTORING FLOW ================= -->
+    <section id="flow-tutoring" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Tutoring Services / <span class="text-sm font-normal italic text-amber-700">Tajaajila Barnootaa</span></h3>
+      <p class="text-sm text-gray-600">Select delivery method / Karaa tajaajila argachuu barbaaddan filadhaa:</p>
+
+      <div class="space-y-3">
+        <button onclick="showSection('tutoring-physical')" class="w-full text-left p-4 border rounded-xl hover:bg-amber-50 font-semibold flex justify-between items-center transition">
+          <div>
+            <span class="block"><i class="fa-solid fa-house-user text-amber-600 mr-2"></i> Home to Home (Physical)</span>
+            <span class="text-xs italic font-normal text-gray-500">Qaamaan Manaa Manatti</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-400"></i>
+        </button>
+
+        <button onclick="showSection('tutoring-online')" class="w-full text-left p-4 border rounded-xl hover:bg-amber-50 font-semibold flex justify-between items-center transition">
+          <div>
+            <span class="block"><i class="fa-solid fa-laptop text-amber-600 mr-2"></i> Online Tutoring</span>
+            <span class="text-xs italic font-normal text-gray-500">Karaa Toora Intarnetii</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-400"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Tutoring Physical -->
+    <section id="tutoring-physical" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4 text-center">
+      <button onclick="showSection('flow-tutoring')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2 text-left">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Home to Home (Physical Tutoring)</h3>
+      <p class="text-sm text-gray-600">Contact us for agreements / Waliigaltee fi odeeffannoo dabalataaf nu qunnamaa:</p>
+
+      <div class="bg-amber-50 p-4 rounded-xl space-y-2 border border-amber-200">
+        <p class="font-bold text-amber-900"><i class="fa-solid fa-phone text-amber-600 mr-1"></i> Direct Call / DM:</p>
+        <p class="text-lg font-mono font-bold text-gray-800">0975753096 / 0922342606</p>
+      </div>
+    </section>
+
+    <!-- Tutoring Online Options -->
+    <section id="tutoring-online" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('flow-tutoring')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Online Tutoring - Delivery Method</h3>
+      <p class="text-sm text-gray-600">Select delivery method / Karaa tajaajila itti hordoftan filadhaa:</p>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="startTutoringOnline('Call (P2P)', 3000)" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-solid fa-phone-volume text-2xl text-amber-600 mb-2"></i>
+          <p class="font-bold text-sm">Call (P2P)</p>
+          <p class="text-xs text-green-600 font-bold mt-1">3,000 Birr</p>
+        </button>
+
+        <button onclick="startTutoringOnline('Via Telegram', 2500)" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-brands fa-telegram text-2xl text-blue-500 mb-2"></i>
+          <p class="font-bold text-sm">Via Telegram</p>
+          <p class="text-xs text-green-600 font-bold mt-1">2,500 Birr</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= TRAINING FLOW ================= -->
+    <section id="flow-training" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Training Services (Online Only)</h3>
+      <p class="text-sm text-gray-600">Select Training Type / Leenjii barbaaddan filadhaa:</p>
+
+      <div class="space-y-3 text-sm">
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Online Income Training" class="accent-amber-600" checked>
+          <span class="ml-2 font-medium">Online (Digital) Income Training / Sharing</span>
+        </label>
+
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Counseling Organization" class="accent-amber-600">
+          <span class="ml-2 font-medium">Counseling Any Business Organization</span>
+        </label>
+
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Child Treatment & Personal Attitude" class="accent-amber-600">
+          <span class="ml-2 font-medium">Child Treatment & Personal Attitude Change</span>
+        </label>
+        
+        <!-- Business Training Options -->
+        <div class="border rounded-xl p-3 bg-gray-50 space-y-2">
+          <p class="font-bold text-gray-800"><i class="fa-solid fa-briefcase text-amber-600 mr-1"></i> Business Training Options:</p>
+          <div class="pl-2 space-y-2 text-xs">
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Starting Business" class="accent-amber-600"> Starting Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Zero Capital" class="accent-amber-600"> Zero Capital Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Promoting/Expanding" class="accent-amber-600"> Promoting / Expanding Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Direct Selling" class="accent-amber-600"> Direct Selling Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Business Plan Writing" class="accent-amber-600"> Business Plan Writing</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="border-t pt-4 space-y-3">
+        <h4 class="font-bold text-gray-800">Registration Form / <span class="italic font-normal text-xs text-gray-600">Unka Galmee</span></h4>
+        <input type="text" id="reg-name" placeholder="Full Name / Maqaa Guutuu" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <input type="email" id="reg-email" placeholder="Email Address / Teessoo Email" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <input type="tel" id="reg-phone" placeholder="Phone Number / Lakk. Bilbilaa" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <button onclick="goToTrainingDelivery()" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl shadow hover:bg-amber-700 flex items-center justify-center gap-2">
+          <span>NEXT / ITTI FUFI</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Training Delivery Selection -->
+    <section id="training-delivery" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('flow-training')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Select Training Delivery Method / <span class="text-sm font-normal italic text-gray-600">Karaa Leenjiin Itti Kennamu Filadhu</span></h3>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="showTrainingPlans('p2p')" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-solid fa-phone-volume text-2xl text-amber-600 mb-2"></i>
+          <p class="font-bold text-sm">Call (P2P)</p>
+        </button>
+
+        <button onclick="showTrainingPlans('telegram')" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-brands fa-telegram text-2xl text-blue-500 mb-2"></i>
+          <p class="font-bold text-sm">Via Telegram</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- Training Plans - P2P -->
+    <section id="plans-p2p" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('training-delivery')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Call (P2P) Plans & Payment</h3>
+
+      <div class="space-y-2 text-sm">
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="1,000" checked> 1W, 1hr/d for 6 days</span>
+          <span class="font-bold text-green-600">1,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="800"> 2W, 1hr/d for 12 days</span>
+          <span class="font-bold text-green-600">800 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="3,000"> 1M, 1hr/d for 24 days</span>
+          <span class="font-bold text-green-600">3,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="8,000"> 3M, 1hr/d for 60 days + Cert</span>
+          <span class="font-bold text-green-600">8,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="14,000"> 6M, 1hr/d for 120 days + Cert</span>
+          <span class="font-bold text-green-600">14,000 Birr</span>
+        </label>
+      </div>
+
+      <button onclick="goToPayment('Call P2P')" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
+        <span>NEXT / ITTI FUFI</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- Training Plans - Telegram -->
+    <section id="plans-telegram" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('training-delivery')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Via Telegram Plans & Payment</h3>
+
+      <div class="space-y-2 text-sm">
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="2,000" checked> 1M, 3d/w for 2 hrs each</span>
+          <span class="font-bold text-green-600">2,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="5,000"> 3M, 3d/w for 2 hrs each + Cert</span>
+          <span class="font-bold text-green-600">5,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="8,000"> 6M, 3d/w for 2 hrs each + Cert</span>
+          <span class="font-bold text-green-600">8,000 Birr</span>
+        </label>
+      </div>
+
+      <button onclick="goToPayment('Via Telegram')" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
+        <span>NEXT / ITTI FUFI</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- ================= ADVERTISING FLOW ================= -->
+    <section id="flow-advertising" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Advertising Services</h3>
+      <p class="text-sm text-gray-600">Select Advertising Type / Tajaajila Beeksisaa Filadhaa:</p>
+
+      <div class="space-y-2 text-sm">
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Social Media" class="accent-amber-600" checked> Via Social Media (video or text posts)</label>
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Logo Design" class="accent-amber-600"> Logo Design</label>
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Website Post" class="accent-amber-600"> Website Post</label>
+      </div>
+
+      <div class="border-t pt-4 space-y-3">
+        <p class="font-bold text-sm text-gray-700">For Price & More Information / Gatii fi Odeeffannoo Dabalataaf:</p>
+        <button onclick="window.open('tel:0975753096', '_system')" class="block w-full bg-amber-600 text-white text-center font-bold py-3.5 rounded-xl shadow"><i class="fa-solid fa-phone mr-2"></i> Direct Call (0975753096)</button>
+        <button onclick="window.open('https://telegram.me/jobshare4', '_system')" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center font-bold py-3.5 rounded-xl shadow transition"><i class="fa-brands fa-telegram mr-2"></i> DM (Telegram) Inbox (@jobshare4)</button>
+      </div>
+    </section>
+
+    <!-- ================= COMMON PAYMENT SECTION ================= -->
+    <section id="section-payment" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Make Payment / Kaffaltii Raawwachuu</h3>
+      
+      <div class="bg-gray-50 p-4 rounded-xl space-y-2 text-sm border border-gray-200">
+        <p class="font-bold text-gray-700">Account Numbers / Lakkoofsa Herregaa:</p>
+        <p class="text-gray-800"><strong>CBE:</strong> 1000XXXXXXXXX</p>
+        <p class="text-gray-800"><strong>Telebirr:</strong> 0975753096 / 0922342606</p>
+      </div>
+
+      <!-- Receipt Upload Form -->
+      <div class="space-y-3 border-t pt-3">
+        <h4 class="font-bold text-sm text-gray-800">Confirm Payment (Upload Receipt) / <span class="italic font-normal text-xs text-gray-600">Nagahee Fe'aa</span></h4>
+        <input type="file" id="receipt-file" accept="image/*,.pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100">
+        <button onclick="processConfirmation()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl shadow flex items-center justify-center gap-2">
+          <span>Confirm & Submit / Mirkaneessi & Ergi</span>
+          <i class="fa-solid fa-check"></i>
+        </button>
+      </div>
+
+      <!-- Action Links after confirmation -->
+      <div id="final-actions" class="hidden border-t pt-4 space-y-3 text-center">
+        <p class="text-sm text-green-700 font-bold bg-green-50 p-3 rounded-xl border border-green-200"><i class="fa-solid fa-circle-check text-lg mr-1"></i> Receipt submitted successfully! / Nagaheen keessan milkaa'inaan ergameera!</p>
+        
+        <div id="action-call-provider" class="hidden">
+          <button onclick="window.open('tel:0975753096', '_system')" class="block w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl shadow"><i class="fa-solid fa-phone mr-2"></i> Call Provider (0975753096)</button>
+        </div>
+        
+        <div id="action-telegram-group" class="hidden space-y-2">
+          <button onclick="window.open('https://telegram.me/furtubusiness', '_system')" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow transition"><i class="fa-brands fa-telegram mr-2"></i> Join Telegram Channel</button>
+          <p class="text-xs text-gray-500 mt-2">Send message <strong>"Registered"</strong> to Inbox @jobshare4.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let selectedDelivery = '';
+
+    function hideAll() {
+      const sections = document.querySelectorAll('main > section');
+      sections.forEach(s => s.classList.add('hidden'));
+    }
+
+    function showSection(id) {
+      hideAll();
+      document.getElementById(id).classList.remove('hidden');
+      window.scrollTo(0,0);
+    }
+
+    function handleMainServiceSelect(service) {
+      if (service === 'tutoring') showSection('flow-tutoring');
+      else if (service === 'training') showSection('flow-training');
+      else if (service === 'advertising') showSection('flow-advertising');
+    }
+
+    function startTutoringOnline(method, price) {
+      selectedDelivery = method;
+      showSection('section-payment');
+    }
+
+    function goToTrainingDelivery() {
+      const name = document.getElementById('reg-name').value;
+      const phone = document.getElementById('reg-phone').value;
+      if (!name || !phone) {
+        alert("Please fill Full Name and Phone Number! / Maaloo Maqaa fi Lakkoofsa Bilbilaa guutaa!");
+        return;
+      }
+      showSection('training-delivery');
+    }
+
+    function showTrainingPlans(type) {
+      if (type === 'p2p') {
+        selectedDelivery = 'Call P2P';
+        showSection('plans-p2p');
+      } else {
+        selectedDelivery = 'Via Telegram';
+        showSection('plans-telegram');
+      }
+    }
+
+    function goToPayment(deliveryMethod) {
+      selectedDelivery = deliveryMethod;
+      showSection('section-payment');
+    }
+
+    function processConfirmation() {
+      const fileInput = document.getElementById('receipt-file');
+      if (!fileInput.files.length) {
+        alert("Please upload receipt image! / Maaloo suuraa nagahee fe'aa!");
+        return;
+      }
+      
+      document.getElementById('final-actions').classList.remove('hidden');
+      if (selectedDelivery.includes('Call') || selectedDelivery.includes('P2P')) {
+        document.getElementById('action-call-provider').classList.remove('hidden');
+      } else {
+        document.getElementById('action-telegram-group').classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
