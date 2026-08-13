@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furtu General Trading</title>
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0d6efd;
             --primary-dark: #0a58ca;
             --secondary: #6c757d;
-            --dark: #121212;
+            --dark: #0f1016;
             --card-bg: #1e1e24;
-            --light-bg: #f8f9fa;
-            --text-light: #f8f9fa;
-            --text-dark: #212529;
             --accent: #00f2fe;
             --success: #198754;
             --danger: #dc3545;
+            --text-light: #f8f9fa;
         }
 
         * {
@@ -32,13 +29,13 @@
         }
 
         body {
-            background-color: #0f1016;
+            background-color: var(--dark);
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header & Navigation */
+        /* Header Navigation */
         header {
             background: rgba(15, 16, 22, 0.95);
             backdrop-filter: blur(10px);
@@ -63,9 +60,7 @@
             gap: 10px;
         }
 
-        .logo span {
-            color: var(--primary);
-        }
+        .logo span { color: var(--primary); }
 
         nav {
             display: flex;
@@ -80,28 +75,33 @@
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--accent);
-        }
+        nav a:hover { color: var(--accent); }
 
         .admin-btn {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             border: 1px solid var(--accent);
-            padding: 5px 12px;
+            padding: 6px 15px;
             border-radius: 20px;
             color: var(--accent);
             cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .admin-btn:hover {
+            background: var(--accent);
+            color: #000;
         }
 
         /* Hero Section */
         .hero {
-            padding: 140px 5% 60px;
+            padding: 150px 5% 80px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(13,110,253,0.15) 0%, rgba(15,16,22,1) 100%);
+            background: radial-gradient(circle at top, rgba(13,110,253,0.2) 0%, rgba(15,16,22,1) 80%);
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             background: linear-gradient(45deg, #fff, var(--accent));
             -webkit-background-clip: text;
@@ -109,9 +109,10 @@
         }
 
         .hero p {
-            max-width: 700px;
-            margin: 0 auto 25px;
+            max-width: 750px;
+            margin: 0 auto 30px;
             color: #b0b0b0;
+            font-size: 1.05rem;
         }
 
         .cta-btns {
@@ -129,6 +130,9 @@
             transition: 0.3s;
             cursor: pointer;
             border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary {
@@ -141,21 +145,30 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* Sections General */
-        section {
-            padding: 60px 5%;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
         }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* Section Title */
+        section { padding: 60px 5%; }
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 40px;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            width: 50px;
+            width: 60px;
             height: 3px;
             background: var(--accent);
             display: block;
@@ -166,7 +179,7 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
@@ -184,6 +197,7 @@
         .service-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         .service-card i {
@@ -192,20 +206,32 @@
             margin-bottom: 15px;
         }
 
-        .service-card h3 {
-            margin-bottom: 12px;
-        }
+        .service-card h3 { margin-bottom: 12px; }
 
-        .service-card p {
-            color: #a0a0a0;
-            font-size: 0.9rem;
+        .service-card ul {
+            list-style: none;
             margin-bottom: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
         }
 
-        /* Gallery & Posts Section */
+        .service-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-card ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Updates & Showcase Gallery */
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -219,39 +245,65 @@
         .post-media {
             width: 100%;
             height: 180px;
-            background: #2a2a35;
+            background: #252530;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #6c757d;
-        }
-
-        .post-content {
-            padding: 15px;
-        }
-
-        .post-date {
-            font-size: 0.75rem;
             color: var(--accent);
         }
 
-        /* Testimonials Carousel */
-        .testimonial-slider {
-            display: flex;
+        .post-content { padding: 20px; }
+
+        /* Testimonials */
+        .testi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 15px;
         }
 
         .testi-card {
-            min-width: 280px;
             background: var(--card-bg);
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             border-left: 4px solid var(--accent);
         }
 
-        /* Payment Upload & Modal */
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .stars { color: #ffc107; margin-bottom: 5px; }
+
+        /* Forms & Inputs */
+        .form-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #121218;
+            color: #fff;
+        }
+
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
@@ -267,53 +319,23 @@
             background: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
-            max-width: 500px;
+            max-width: 550px;
             width: 90%;
             position: relative;
         }
 
         .close-btn {
             position: absolute;
-            top: 15px; right: 15px;
-            font-size: 1.2rem;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
             cursor: pointer;
             color: #aaa;
         }
 
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: #121218;
-            color: #fff;
-        }
-
-        /* Reviews Section */
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .review-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-        }
-
-        .stars {
-            color: #ffc107;
-            margin-bottom: 5px;
-        }
-
-        /* Footer & Social Media */
+        /* Footer */
         footer {
             background: #08080c;
-            padding: 40px 5% 20px;
+            padding: 50px 5% 20px;
             border-top: 1px solid rgba(255,255,255,0.05);
             text-align: center;
         }
@@ -322,13 +344,13 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 20px 0;
+            margin: 25px 0;
             flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(255,255,255,0.05);
             display: flex;
@@ -337,52 +359,43 @@
             color: #fff;
             text-decoration: none;
             transition: 0.3s;
+            font-size: 1.2rem;
         }
 
         .social-icon:hover {
             background: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .footer-nav {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
             flex-wrap: wrap;
         }
 
-        .footer-nav a {
-            color: #888;
-            text-decoration: none;
-        }
+        .footer-nav a { color: #aaa; text-decoration: none; }
+        .footer-nav a:hover { color: #fff; }
 
-        /* Responsive Mobile Adjustments */
         @media (max-width: 768px) {
-            header {
-                padding: 15px;
-            }
-            nav a:not(.admin-btn) {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+            nav a:not(.admin-btn) { display: none; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Navigation Header -->
     <header>
-        <a href="#" class="logo"><i class="fa-solid fa-key"></i> Furtu <span>Trading</span></a>
+        <a href="#" class="logo"><i class="fa-solid fa-key"></i> Furtu <span>General Trading</span></a>
         <nav>
             <a href="#services">Tajaajila</a>
             <a href="#posts">Announcements</a>
             <a href="#about">Waa'ee Keenya</a>
             <a href="#contact">Contact</a>
-            <button class="admin-btn" onclick="openAdminModal()"><i class="fa-solid fa-lock"></i> Admin</button>
+            <button class="admin-btn" onclick="openAdminModal()"><i class="fa-solid fa-lock"></i> Admin Panel</button>
         </nav>
     </header>
 
@@ -391,8 +404,8 @@
         <h1>Furtu General Trading</h1>
         <p>Giddu gala quunnamsiistuu barnootaa, leenjii, gabaa dijitaalaa fi tajaajiloota beeksisaa ammayyaawaa.</p>
         <div class="cta-btns">
-            <a href="#services" class="btn btn-primary">Tajaajila Filadhu</a>
-            <button class="btn btn-primary" style="background: var(--card-bg); border: 1px solid var(--accent);" onclick="openReceiptModal()">Nagahee Fe'i (Upload Receipt)</button>
+            <a href="#services" class="btn btn-primary"><i class="fa-solid fa-list-check"></i> Tajaajila Filadhu</a>
+            <button class="btn btn-outline" onclick="openReceiptModal()"><i class="fa-solid fa-receipt"></i> Nagahee Fe'i (Upload Receipt)</button>
         </div>
     </section>
 
@@ -406,9 +419,14 @@
                 <div>
                     <i class="fa-solid fa-user-graduate"></i>
                     <h3>Tutoring & Educational Writing</h3>
-                    <p>Tutoring & any educational writing Services (Online & Physical) barataa sadarkaa kamiifuu, qorannoo, assignment, fi leenjii dandeettii dhuunfaa/teeknoolojii.</p>
+                    <ul>
+                        <li>Tutoring Services for all grade levels (Online & Physical)</li>
+                        <li>Qorannoo, Karoora, Assignment fi Gorsa (Counseling)</li>
+                        <li>Gahumsa dhuunfaa fi teeknoolojii hojii/daldalaa</li>
+                        <li>Qabisaa fi ijaarsa dandeettii daa'immanii</li>
+                    </ul>
                 </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Registre / Kafalti</button>
+                <button class="btn btn-primary" onclick="openReceiptModal()">Galmaa'i / Register</button>
             </div>
 
             <!-- Service 2 -->
@@ -416,9 +434,13 @@
                 <div>
                     <i class="fa-solid fa-cart-shopping"></i>
                     <h3>Digital E-Commerce & Marketplace</h3>
-                    <p>Bittaa fi gurgurtaa meeshaalee, uffataafi dhiyeessiiwwan adda addaa haala mijataa fi amanamaa ta'een dhiyeessuu.</p>
+                    <ul>
+                        <li>Bittaa fi gurgurtaa meeshaalee fi uffataalee</li>
+                        <li>Dhiyeessiiwwan adda addaa haala mijataan</li>
+                        <li>Dhaabbata keessan gara gabaatti fiduu</li>
+                    </ul>
                 </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Bitachuuf</button>
+                <button class="btn btn-primary" onclick="openReceiptModal()">Bitachuuf / Marketplace</button>
             </div>
 
             <!-- Service 3 -->
@@ -426,47 +448,52 @@
                 <div>
                     <i class="fa-solid fa-rectangle-ad"></i>
                     <h3>Advertising Services</h3>
-                    <p>Advertising services for any business organization. Dhaabbata keessan beeksisuufi gara gabaatti dhiyeessuu.</p>
+                    <ul>
+                        <li>Advertising services for any business organization</li>
+                        <li>Tajaajila beeksisa ammayyaawaa fi beekamtii gabaa</li>
+                        <li>Miseensota fi maamiltoota haaraa horachuu</li>
+                    </ul>
                 </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Beeksisuuf</button>
+                <button class="btn btn-primary" onclick="openReceiptModal()">Beeksisuuf / Promote</button>
             </div>
 
         </div>
     </section>
 
-    <!-- Posts & Media Showcase -->
-    <section id="posts">
-        <h2 class="section-title">Latest Updates & Samples</h2>
+    <!-- Dynamic Posts / Media Gallery Showcase -->
+    <section id="posts" style="background: rgba(255,255,255,0.02);">
+        <h2 class="section-title">Announcements & Gallery Posts</h2>
         <div class="posts-grid" id="postsContainer">
-            <!-- Dynamic Posts from JS -->
+            <!-- Dynamic Posts JS -->
         </div>
     </section>
 
-    <!-- Client Testimonials -->
+    <!-- Testimonials & Proofs -->
     <section>
-        <h2 class="section-title">Testimonials & Proofs</h2>
-        <div class="testimonial-slider">
+        <h2 class="section-title">Client Testimonials & Proofs</h2>
+        <div class="testi-container">
             <div class="testi-card">
-                <i class="fa-solid fa-quote-left" style="color: var(--accent);"></i>
+                <i class="fa-solid fa-quote-left" style="color: var(--accent); font-size: 1.5rem;"></i>
                 <p>"Leenjiin dandeettii dhuunfaa fi Tutoring isaanii baay'ee qulqulluu fi kan nama boonsudha!"</p>
-                <small style="color: var(--accent);">- Client Testimonial (PDF/Audio Proof Verified)</small>
+                <small style="color: var(--accent);">- Verified Student (Proof Verified)</small>
             </div>
             <div class="testi-card">
-                <i class="fa-solid fa-quote-left" style="color: var(--accent);"></i>
+                <i class="fa-solid fa-quote-left" style="color: var(--accent); font-size: 1.5rem;"></i>
                 <p>"Tajaajila beeksisaa fi marketplace isaanii fayyadameen bu'aa fooyya'aa argadhe."</p>
-                <small style="color: var(--accent);">- Verified Business Client</small>
+                <small style="color: var(--accent);">- Verified Enterprise Client</small>
             </div>
         </div>
     </section>
 
-    <!-- User Review System -->
+    <!-- Reviews Section -->
     <section>
         <h2 class="section-title">User Reviews</h2>
-        <div class="reviews-container" id="reviewsContainer">
-            <!-- Dynamic Reviews -->
+        <div class="reviews-grid" id="reviewsContainer">
+            <!-- Dynamic Reviews JS -->
         </div>
-        <div style="margin-top: 25px; max-width: 500px; margin-left: auto; margin-right: auto;">
-            <h3>Yaada kee kaadhu</h3>
+
+        <div class="form-box">
+            <h3 style="margin-bottom: 15px; text-align: center;">Yaada kee kaadhu (Leave a Review)</h3>
             <form onsubmit="submitReview(event)">
                 <input type="text" id="revName" placeholder="Maqaa kee" required>
                 <select id="revStar">
@@ -483,23 +510,23 @@
     <!-- About Us Section -->
     <section id="about" style="background: var(--card-bg); border-radius: 20px; margin: 0 5%;">
         <h2 class="section-title">Waa'ee Furtu General Trading</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-            "Furtu General Trading" Teknoolojiin kan deeggarame, Dhaabbata tajaajila Barnootaa, Leenjii, Gabaa dijiitaalaafi giddu gala quunnamsiistuu tajaajilaafi Oomisha keessaniiti. Kaayyoon keenya tajaajiloota qulqullina ol'aanaa qaban amanamummaa fi saffisaan hawaasa keenyaaf dhiyeessudha.
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #ccc;">
+            "Furtu General Trading" Teknoolojiin kan deeggarame, Dhaabbata tajaajila Barnootaa, Leenjii, Gabaa dijiitaalaafi giddu gala quunnamsiistuu tajaajilaafi Oomisha keessaniiti. Kaayyoon keenya inni guddaan tajaajiloota qulqullina ol'aanaa qaban, amanamummaa fi saffisa barbaadameen hawaasa keenyaaf dhiyeessudha.
         </p>
     </section>
 
-    <!-- Receipt Upload Modal (User) -->
+    <!-- Payment Upload Modal -->
     <div class="modal" id="receiptModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('receiptModal')">&times;</span>
             <h3>Upload Payment Receipt</h3>
-            <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 15px;">Kaffaltii raawwattee nagahee (screenshot/PDF) ergi.</p>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">Kaffaltii raawwattee nagahee (screenshot/PDF) ergi.</p>
             <form onsubmit="uploadReceipt(event)">
                 <input type="text" id="uName" placeholder="Maqaa Guutuu" required>
                 <input type="tel" id="uPhone" placeholder="Lakk. Bilbilaa" required>
                 <select id="uService">
                     <option>Tutoring & Educational Writing</option>
-                    <option>Digital E-Commerce</option>
+                    <option>Digital E-Commerce & Marketplace</option>
                     <option>Advertising Services</option>
                 </select>
                 <input type="file" id="uFile" accept="image/*,application/pdf" required>
@@ -508,22 +535,22 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard Modal -->
+    <!-- Admin Panel Modal -->
     <div class="modal" id="adminModal">
-        <div class="modal-content" style="max-width: 700px;">
+        <div class="modal-content" style="max-width: 650px;">
             <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
-            <h3>Admin Panel - Receipts Verification</h3>
+            <h3>Admin Panel - Receipt Approvals</h3>
             <div id="adminReceiptList" style="margin-top: 20px; max-height: 350px; overflow-y: auto;">
                 <p style="color: #888;">Nagaheen fe'ame hin jiru.</p>
             </div>
         </div>
     </div>
 
-    <!-- Contact & Footer -->
+    <!-- Footer & Contact -->
     <footer id="contact">
         <h3>Nu Argachuuf (Contact Us)</h3>
-        <p>Finfinnee, Itoophiyaa</p>
-        <p>Bilbila: +251911698295 / +251922342606 | Email: lammimagarsa@gmail.com</p>
+        <p style="color: #aaa; margin-top: 5px;">Finfinnee, Itoophiyaa</p>
+        <p style="color: #aaa;">Bilbila: +251911698295 / +251922342606 | Email: lammimagarsa@gmail.com</p>
 
         <!-- Social Links -->
         <div class="social-links">
@@ -544,51 +571,45 @@
         <p style="font-size: 0.75rem; color: #555;">&copy; 2026 Furtu General Trading. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Application Logic -->
+    <!-- App Logic JS -->
     <script>
-        // Sample Posts (Normal Posts system)
         const posts = [
             { title: "Baga Nagaan Dhuftan!", date: "2026-08-13", desc: "Furtu General Trading tajaajiloota dijitaalaa ammayyaawaa siif dhiyeessa.", icon: "fa-bullhorn" },
-            { title: "Tutorial & Educational Writing", date: "2026-08-10", desc: "Barattootaa fi qorattootaaf deegarsa cimsannaa qulqullina ol'aanaa qabu.", icon: "fa-book-open" }
+            { title: "Tutoring & Educational Writing", date: "2026-08-10", desc: "Barattootaa fi qorattootaaf deegarsa cimsannaa qulqullina ol'aanaa qabu.", icon: "fa-book-open" }
         ];
 
-        // Sample Reviews
         const reviews = [
             { name: "Sora T.", stars: 5, comment: "Tajaajilli isaanii baay'ee saffisaa fi amanamaadha!" },
             { name: "Meti K.", stars: 5, comment: "Tutoring service isaaniin baay'ee itti gammadeera." }
         ];
 
-        // Store Uploaded Receipts (In-memory array for demo)
         let receipts = [];
 
-        // Render Posts
         function renderPosts() {
             const container = document.getElementById('postsContainer');
             container.innerHTML = posts.map(p => `
                 <div class="post-card">
                     <div class="post-media"><i class="fa-solid ${p.icon} fa-3x"></i></div>
                     <div class="post-content">
-                        <span class="post-date">${p.date}</span>
-                        <h4>${p.title}</h4>
+                        <span style="font-size: 0.75rem; color: var(--accent);">${p.date}</span>
+                        <h4 style="margin: 5px 0;">${p.title}</h4>
                         <p style="font-size: 0.85rem; color: #aaa;">${p.desc}</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Render Reviews
         function renderReviews() {
             const container = document.getElementById('reviewsContainer');
             container.innerHTML = reviews.map(r => `
                 <div class="review-card">
                     <div class="stars">${'⭐'.repeat(r.stars)}</div>
                     <strong>${r.name}</strong>
-                    <p>${r.comment}</p>
+                    <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">${r.comment}</p>
                 </div>
             `).join('');
         }
 
-        // Modals Control
         function openReceiptModal() { document.getElementById('receiptModal').style.display = 'flex'; }
         function openAdminModal() { 
             renderAdminReceipts();
@@ -596,7 +617,6 @@
         }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-        // Form Actions
         function uploadReceipt(e) {
             e.preventDefault();
             const name = document.getElementById('uName').value;
@@ -604,7 +624,7 @@
             const service = document.getElementById('uService').value;
 
             receipts.push({ id: Date.now(), name, phone, service, status: 'Pending' });
-            alert("Nagaheen kee milkaa'inaan fe'ameera! Seeraan mirkanaa'a.");
+            alert("Nagaheen kee milkaa'inaan fe'ameera!");
             closeModal('receiptModal');
         }
 
@@ -626,15 +646,13 @@
                 return;
             }
             list.innerHTML = receipts.map(r => `
-                <div style="background: #121218; padding: 10px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="background: #121218; padding: 12px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
                         <strong>${r.name} (${r.phone})</strong><br>
                         <small style="color: var(--accent);">${r.service}</small><br>
-                        <small>Status: ${r.status}</small>
+                        <small style="color: #aaa;">Status: ${r.status}</small>
                     </div>
-                    <div>
-                        <button onclick="approveReceipt(${r.id})" style="background: var(--success); color: #fff; border:none; padding: 5px 10px; border-radius: 5px; cursor:pointer;">Approve ✅</button>
-                    </div>
+                    <button onclick="approveReceipt(${r.id})" style="background: var(--success); color: #fff; border:none; padding: 6px 12px; border-radius: 5px; cursor:pointer;">Approve ✅</button>
                 </div>
             `).join('');
         }
@@ -647,7 +665,6 @@
             }
         }
 
-        // Initialize Page
         window.onload = function() {
             renderPosts();
             renderReviews();
