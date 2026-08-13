@@ -1,674 +1,740 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furtu General Trading</title>
-    <!-- FontAwesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0d6efd;
-            --primary-dark: #0a58ca;
-            --secondary: #6c757d;
-            --dark: #0f1016;
-            --card-bg: #1e1e24;
-            --accent: #00f2fe;
-            --success: #198754;
-            --danger: #dc3545;
-            --text-light: #f8f9fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Header Navigation */
-        header {
-            background: rgba(15, 16, 22, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span { color: var(--primary); }
-
-        nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        .admin-btn {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid var(--accent);
-            padding: 6px 15px;
-            border-radius: 20px;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-
-        .admin-btn:hover {
-            background: var(--accent);
-            color: #000;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 150px 5% 80px;
-            text-align: center;
-            background: radial-gradient(circle at top, rgba(13,110,253,0.2) 0%, rgba(15,16,22,1) 80%);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            max-width: 750px;
-            margin: 0 auto 30px;
-            color: #b0b0b0;
-            font-size: 1.05rem;
-        }
-
-        .cta-btns {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-        }
-
-        .btn-outline:hover {
-            background: var(--accent);
-            color: #000;
-        }
-
-        /* Section Title */
-        section { padding: 60px 5%; }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 { margin-bottom: 12px; }
-
-        .service-card ul {
-            list-style: none;
-            margin-bottom: 20px;
-            color: #b0b0b0;
-            font-size: 0.9rem;
-        }
-
-        .service-card ul li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .service-card ul li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Updates & Showcase Gallery */
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .post-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .post-media {
-            width: 100%;
-            height: 180px;
-            background: #252530;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-        }
-
-        .post-content { padding: 20px; }
-
-        /* Testimonials */
-        .testi-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .testi-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .review-card {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 10px;
-        }
-
-        .stars { color: #ffc107; margin-bottom: 5px; }
-
-        /* Forms & Inputs */
-        .form-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: #121218;
-            color: #fff;
-        }
-
-        /* Modals */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 550px;
-            width: 90%;
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        /* Footer */
-        footer {
-            background: #08080c;
-            padding: 50px 5% 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover {
-            background: var(--primary);
-            transform: translateY(-4px);
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-nav a { color: #aaa; text-decoration: none; }
-        .footer-nav a:hover { color: #fff; }
-
-        @media (max-width: 768px) {
-            nav a:not(.admin-btn) { display: none; }
-            .hero h1 { font-size: 2rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furtu General Trading (FGT)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation Header -->
-    <header>
-        <a href="#" class="logo"><i class="fa-solid fa-key"></i> Furtu <span>General Trading</span></a>
-        <nav>
-            <a href="#services">Tajaajila</a>
-            <a href="#posts">Announcements</a>
-            <a href="#about">Waa'ee Keenya</a>
-            <a href="#contact">Contact</a>
-            <button class="admin-btn" onclick="openAdminModal()"><i class="fa-solid fa-lock"></i> Admin Panel</button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Furtu General Trading</h1>
-        <p>Giddu gala quunnamsiistuu barnootaa, leenjii, gabaa dijitaalaa fi tajaajiloota beeksisaa ammayyaawaa.</p>
-        <div class="cta-btns">
-            <a href="#services" class="btn btn-primary"><i class="fa-solid fa-list-check"></i> Tajaajila Filadhu</a>
-            <button class="btn btn-outline" onclick="openReceiptModal()"><i class="fa-solid fa-receipt"></i> Nagahee Fe'i (Upload Receipt)</button>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">Tajaajiloota Keenya</h2>
-        <div class="services-grid">
-            
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-user-graduate"></i>
-                    <h3>Tutoring & Educational Writing</h3>
-                    <ul>
-                        <li>Tutoring Services for all grade levels (Online & Physical)</li>
-                        <li>Qorannoo, Karoora, Assignment fi Gorsa (Counseling)</li>
-                        <li>Gahumsa dhuunfaa fi teeknoolojii hojii/daldalaa</li>
-                        <li>Qabisaa fi ijaarsa dandeettii daa'immanii</li>
-                    </ul>
-                </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Galmaa'i / Register</button>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <h3>Digital E-Commerce & Marketplace</h3>
-                    <ul>
-                        <li>Bittaa fi gurgurtaa meeshaalee fi uffataalee</li>
-                        <li>Dhiyeessiiwwan adda addaa haala mijataan</li>
-                        <li>Dhaabbata keessan gara gabaatti fiduu</li>
-                    </ul>
-                </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Bitachuuf / Marketplace</button>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-rectangle-ad"></i>
-                    <h3>Advertising Services</h3>
-                    <ul>
-                        <li>Advertising services for any business organization</li>
-                        <li>Tajaajila beeksisa ammayyaawaa fi beekamtii gabaa</li>
-                        <li>Miseensota fi maamiltoota haaraa horachuu</li>
-                    </ul>
-                </div>
-                <button class="btn btn-primary" onclick="openReceiptModal()">Beeksisuuf / Promote</button>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Dynamic Posts / Media Gallery Showcase -->
-    <section id="posts" style="background: rgba(255,255,255,0.02);">
-        <h2 class="section-title">Announcements & Gallery Posts</h2>
-        <div class="posts-grid" id="postsContainer">
-            <!-- Dynamic Posts JS -->
-        </div>
-    </section>
-
-    <!-- Testimonials & Proofs -->
-    <section>
-        <h2 class="section-title">Client Testimonials & Proofs</h2>
-        <div class="testi-container">
-            <div class="testi-card">
-                <i class="fa-solid fa-quote-left" style="color: var(--accent); font-size: 1.5rem;"></i>
-                <p>"Leenjiin dandeettii dhuunfaa fi Tutoring isaanii baay'ee qulqulluu fi kan nama boonsudha!"</p>
-                <small style="color: var(--accent);">- Verified Student (Proof Verified)</small>
-            </div>
-            <div class="testi-card">
-                <i class="fa-solid fa-quote-left" style="color: var(--accent); font-size: 1.5rem;"></i>
-                <p>"Tajaajila beeksisaa fi marketplace isaanii fayyadameen bu'aa fooyya'aa argadhe."</p>
-                <small style="color: var(--accent);">- Verified Enterprise Client</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section>
-        <h2 class="section-title">User Reviews</h2>
-        <div class="reviews-grid" id="reviewsContainer">
-            <!-- Dynamic Reviews JS -->
-        </div>
-
-        <div class="form-box">
-            <h3 style="margin-bottom: 15px; text-align: center;">Yaada kee kaadhu (Leave a Review)</h3>
-            <form onsubmit="submitReview(event)">
-                <input type="text" id="revName" placeholder="Maqaa kee" required>
-                <select id="revStar">
-                    <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                    <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                    <option value="3">⭐⭐⭐ (3/5)</option>
-                </select>
-                <textarea id="revComment" placeholder="Yaada kee asitti barreessi..." required></textarea>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Review</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" style="background: var(--card-bg); border-radius: 20px; margin: 0 5%;">
-        <h2 class="section-title">Waa'ee Furtu General Trading</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #ccc;">
-            "Furtu General Trading" Teknoolojiin kan deeggarame, Dhaabbata tajaajila Barnootaa, Leenjii, Gabaa dijiitaalaafi giddu gala quunnamsiistuu tajaajilaafi Oomisha keessaniiti. Kaayyoon keenya inni guddaan tajaajiloota qulqullina ol'aanaa qaban, amanamummaa fi saffisa barbaadameen hawaasa keenyaaf dhiyeessudha.
-        </p>
-    </section>
-
-    <!-- Payment Upload Modal -->
-    <div class="modal" id="receiptModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('receiptModal')">&times;</span>
-            <h3>Upload Payment Receipt</h3>
-            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">Kaffaltii raawwattee nagahee (screenshot/PDF) ergi.</p>
-            <form onsubmit="uploadReceipt(event)">
-                <input type="text" id="uName" placeholder="Maqaa Guutuu" required>
-                <input type="tel" id="uPhone" placeholder="Lakk. Bilbilaa" required>
-                <select id="uService">
-                    <option>Tutoring & Educational Writing</option>
-                    <option>Digital E-Commerce & Marketplace</option>
-                    <option>Advertising Services</option>
-                </select>
-                <input type="file" id="uFile" accept="image/*,application/pdf" required>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Receipt</button>
-            </form>
-        </div>
+  <!-- HEADER -->
+  <header class="bg-amber-600 text-white p-3 shadow-lg sticky top-0 z-40 flex justify-between items-center">
+    <!-- Left: Hamburger + Logo + Title -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleSidebar()" class="text-2xl p-1 focus:outline-none hover:text-amber-200 transition">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div onclick="showSection('section-about')" class="flex items-center gap-2 cursor-pointer">
+        <!-- HD Logo loaded from image -->
+        <img src="80979199-bc4d-456e-8620-ba3f248ca598.png" alt="FGT Logo" class="w-10 h-10 object-contain rounded-full bg-white p-0.5 shadow">
+        <span class="font-bold text-lg tracking-wide">FGT</span>
+      </div>
     </div>
 
-    <!-- Admin Panel Modal -->
-    <div class="modal" id="adminModal">
-        <div class="modal-content" style="max-width: 650px;">
-            <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
-            <h3>Admin Panel - Receipt Approvals</h3>
-            <div id="adminReceiptList" style="margin-top: 20px; max-height: 350px; overflow-y: auto;">
-                <p style="color: #888;">Nagaheen fe'ame hin jiru.</p>
-            </div>
+    <!-- Right: Search + Login/Account -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleSearch()" class="p-2 hover:bg-amber-700 rounded-full transition">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+      </button>
+      <button onclick="openLoginModal()" class="flex items-center gap-1.5 bg-amber-700 hover:bg-amber-800 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">
+        <i class="fa-solid fa-user"></i>
+        <span>Login</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SEARCH BAR (HIDDEN BY DEFAULT) -->
+  <div id="search-bar" class="hidden bg-amber-700 p-3 shadow-inner sticky top-14 z-30 transition-all">
+    <div class="max-w-xl mx-auto flex gap-2">
+      <input type="text" placeholder="Search services / Tajaajila barbaadaa..." class="w-full p-2.5 rounded-xl text-sm text-gray-800 focus:outline-none">
+      <button class="bg-amber-900 text-white px-4 py-2.5 rounded-xl text-sm font-bold"><i class="fa-solid fa-search"></i></button>
+    </div>
+  </div>
+
+  <!-- SIDEBAR NAVIGATION MENU (SLIDE IN DRAWER) -->
+  <div id="sidebar-overlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 z-50 transition-opacity"></div>
+  <aside id="sidebar" class="fixed top-0 left-0 w-72 h-full bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto flex flex-col justify-between">
+    <div>
+      <div class="bg-amber-600 p-4 text-white flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <img src="80979199-bc4d-456e-8620-ba3f248ca598.png" alt="FGT Logo" class="w-8 h-8 rounded-full bg-white p-0.5">
+          <span class="font-bold">FGT Menu</span>
         </div>
+        <button onclick="toggleSidebar()" class="text-xl p-1 hover:text-amber-200"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="p-3 space-y-1">
+        <button onclick="navClick('section-about')" class="w-full text-left p-3 rounded-xl hover:bg-amber-50 font-semibold text-gray-700 flex items-center gap-3 transition">
+          <i class="fa-solid fa-house text-amber-600"></i>
+          <span>1. Home</span>
+        </button>
+
+        <button onclick="navClick('menu-about-us')" class="w-full text-left p-3 rounded-xl hover:bg-amber-50 font-semibold text-gray-700 flex items-center gap-3 transition">
+          <i class="fa-solid fa-building-user text-amber-600"></i>
+          <span>2. About Us</span>
+        </button>
+
+        <button onclick="navClick('menu-about-services')" class="w-full text-left p-3 rounded-xl hover:bg-amber-50 font-semibold text-gray-700 flex items-center gap-3 transition">
+          <i class="fa-solid fa-circle-info text-amber-600"></i>
+          <span>3. About Services We Offer</span>
+        </button>
+
+        <button onclick="navClick('menu-privacy-policy')" class="w-full text-left p-3 rounded-xl hover:bg-amber-50 font-semibold text-gray-700 flex items-center gap-3 transition">
+          <i class="fa-solid fa-shield-halved text-amber-600"></i>
+          <span>4. Privacy Policy</span>
+        </button>
+
+        <button onclick="navClick('menu-contact-us')" class="w-full text-left p-3 rounded-xl hover:bg-amber-50 font-semibold text-gray-700 flex items-center gap-3 transition">
+          <i class="fa-solid fa-address-book text-amber-600"></i>
+          <span>5. Contact Us</span>
+        </button>
+      </nav>
     </div>
 
-    <!-- Footer & Contact -->
-    <footer id="contact">
-        <h3>Nu Argachuuf (Contact Us)</h3>
-        <p style="color: #aaa; margin-top: 5px;">Finfinnee, Itoophiyaa</p>
-        <p style="color: #aaa;">Bilbila: +251911698295 / +251922342606 | Email: lammimagarsa@gmail.com</p>
+    <div class="p-4 border-t bg-amber-50 text-center text-xs text-gray-600">
+      <p class="font-bold text-amber-900 mb-1">Furtu General Trading</p>
+      <p>Your place of success!</p>
+    </div>
+  </aside>
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://t.me/furtubusiness" class="social-icon" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://www.facebook.com/share/1DWW3MmUN2/" class="social-icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@lammiib?_r=1&_t=ZS-98qSw8Es90z" class="social-icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://x.com/LammiMagarsa" class="social-icon" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/accounts/edit/?hl=en" class="social-icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/lammi-baqqala" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+  <!-- LOGIN / REGISTER MODAL -->
+  <div id="login-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-2xl p-6 shadow-2xl relative space-y-4">
+      <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="text-xl font-bold text-gray-800 text-center">Account / Seensa</h3>
+      
+      <div class="space-y-3">
+        <input type="email" placeholder="Email / Phone" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <input type="password" placeholder="Password" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <button onclick="alert('Logged in successfully!')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl shadow">Login</button>
+      </div>
+
+      <div class="border-t pt-3 text-center text-xs text-gray-500">
+        Don't have an account? <a href="#" onclick="alert('Redirecting to Registration...')" class="text-amber-700 font-bold underline">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-xl mx-auto p-4 space-y-6 w-full my-auto">
+
+    <!-- PAGE 1: LANDING & ABOUT -->
+    <section id="section-about" class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 text-center space-y-4">
+      <img src="80979199-bc4d-456e-8620-ba3f248ca598.png" alt="FGT Logo" class="w-24 h-24 mx-auto object-contain drop-shadow-md">
+      
+      <h2 class="text-2xl font-extrabold text-amber-900">
+        Welcome to FGT! <br>
+        <span class="text-lg italic font-normal text-amber-700">Baga Nagaan Dhuftan!</span>
+      </h2>
+      
+      <p class="text-gray-700 text-sm leading-relaxed">
+        FGT (Furtu General Trading) provides high-quality Educational Services (Tutoring & any writing like Research, Assignment, etc.), Various Trainings, and Advertising Services. Choosing FGT services means your work is fast and your success is near. <br>
+        <strong class="text-amber-800">If FGT is your first choice, it is your correct and active field of success!</strong>
+      </p>
+
+      <p class="text-gray-500 text-xs italic leading-relaxed border-t pt-3">
+        FGTn tajaajila barnootaa (Tutoring and any writing like Research, Assignment, etc), leenjiiwan adda addaa (Training), fi beeksisa (Advertising) qulqullina olaanaa qabu isiniif dhiyeessina. Filannoon keessan tajaajiloota FGT yoo tahu hojiin keessan saffisaa, milkaayinni keessan dhiyoodha. <br>
+        <strong class="text-amber-800">FGTn yoo filannoo keessan jalqabaa ta'e, Isiniif dirreen milkaayinaa sirrii fi si'aawaa!</strong>
+      </p>
+
+      <button onclick="showSection('section-services-list')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-2">
+        <span>Lists of Services We Offer</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- BUTTON 2: ABOUT US -->
+    <section id="menu-about-us" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <div class="flex items-center gap-3 border-b pb-3">
+        <i class="fa-solid fa-building-user text-2xl text-amber-600"></i>
+        <h3 class="text-xl font-bold text-amber-900">About Us (Furtu General Trading)</h3>
+      </div>
+
+      <p class="text-sm text-gray-700 leading-relaxed text-justify bg-amber-50 p-4 rounded-xl border border-amber-200">
+        "<strong>Furtu General Trading</strong>" Teknoolojiin kan deeggarame, Dhaabbata tajaajila Barnootaa, Leenjii, Gabaa dijiitaalaafi giddu gala quunnamsiistuu tajaajilaafi Oomisha keessaniiti. Kaayyoon keenya inni guddaan tajaajiloota qulqullina ol'aanaa qaban, amanamummaa fi saffisa barbaadameen hawaasa keenyaaf dhiyeessuudhaan jiruuf jireenya dijitaalaa salphisuu, bu'aa fooyya'aa taheefi itti quufa qabu argamsiisuudha.
+      </p>
+
+      <button onclick="showSection('section-select-service')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl shadow transition">
+        Get Started / Tajaajiloota Filadhu
+      </button>
+    </section>
+
+    <!-- BUTTON 3: ABOUT SERVICES WE OFFER -->
+    <section id="menu-about-services" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <div class="flex items-center gap-3 border-b pb-3">
+        <i class="fa-solid fa-circle-info text-2xl text-amber-600"></i>
+        <h3 class="text-xl font-bold text-amber-900">About Services We Offer</h3>
+      </div>
+
+      <p class="text-xs italic text-amber-800 font-semibold">(Ibsaafi yaadota bu'uuraa tajaajiloota Keenyaa)</p>
+
+      <div class="text-sm text-gray-700 space-y-3 leading-relaxed bg-amber-50 p-4 rounded-xl border border-amber-200">
+        <p>Dhaabbanni keenya FGTn barnoota cimsannaa barataa sadarkaa kamiifuu (Tutorials for any grade levels), barruuwan akka qorannoo, karooraa, assignment, Gorsaa (counseling) fi leenjiiwan kanneen akka:</p>
+        
+        <ul class="space-y-1.5 pl-2 font-medium">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1"></i> <span>Gahumsa dhuunfaa</span></li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1"></i> <span>Teeknoolojiiwan hojii, daldalaafi barnootaa</span></li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1"></i> <span>Fooyyessa haala jiruuf jireenya dhuunfaa, akkasumas kan dhaabbataa</span></li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1"></i> <span>Qabisaafi ijaarsa dandeettii daa'immanii</span></li>
+        </ul>
+
+        <p class="pt-2 border-t border-amber-200">... haala ammayaawaa, mijataa, qulqulluufi miidhagaa taheen kan isin deeggaru, isin waliin hojjetuufi milkaayina keessaniif wabii tahuun itti gammaddanidha.</p>
+        <p>Akkasumas haala Digital E-Commerce & Marketplace dhaan Bittaa fi gurgurtaa meeshaalee, Uffataafi dhiyeessiiwwan adda addaa haala mijataa, amanamaa fi ariifachiisaa ta'een kan isiniif dhiyeessudha. Akkasumas, dhaabbata tajaajilaafi oomishaa keessan beeksisuufi gara gabaatti isinii fiduun kan isin tajaajiludha.</p>
+      </div>
+
+      <button onclick="showSection('section-select-service')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl shadow transition">
+        Select a Service Now
+      </button>
+    </section>
+
+    <!-- BUTTON 4: PRIVACY POLICY -->
+    <section id="menu-privacy-policy" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <div class="flex items-center gap-3 border-b pb-3">
+        <i class="fa-solid fa-shield-halved text-2xl text-amber-600"></i>
+        <h3 class="text-xl font-bold text-amber-900">Privacy Policy</h3>
+      </div>
+
+      <p class="text-xs italic text-amber-800 font-semibold">(Eegumsa Odeeffannoo dhuunfaa)</p>
+
+      <p class="text-sm text-gray-700 leading-relaxed bg-amber-50 p-4 rounded-xl border border-amber-200 text-justify">
+        Kabajamoo Maamila keenya, eegumsi Odeeffannoo dhuunfaa keessanii guutummaatti kan eegamedha. Furtu General Trading odeeffannoo dhuunfaa keessan (maqaa, lakk. bilbilaa, fi kanneen biroos) tajaajila isiniif kennamu qofaaf fayyadamna. Kana jechuun qaama sadaffaaf gonkumaa akka hin dabarre isiniif mirkaneessina jechuudha.
+      </p>
+    </section>
+
+    <!-- BUTTON 5: CONTACT US -->
+    <section id="menu-contact-us" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <div class="flex items-center gap-3 border-b pb-3">
+        <i class="fa-solid fa-address-book text-2xl text-amber-600"></i>
+        <h3 class="text-xl font-bold text-amber-900">Contact Us / Nu Argachuuf</h3>
+      </div>
+
+      <div class="space-y-2.5 text-sm">
+        <a href="tel:+251911698295" class="flex items-center gap-3 p-3 bg-amber-50 rounded-xl hover:bg-amber-100 transition border border-amber-200">
+          <i class="fa-solid fa-phone text-amber-700 text-lg"></i>
+          <div><p class="text-xs font-bold text-gray-500">Bilbila / Direct Call</p><p class="font-bold text-gray-800">+251 911 698 295 / +251 922 342 606</p></div>
+        </a>
+
+        <a href="mailto:lammimagarsa@gmail.com" class="flex items-center gap-3 p-3 bg-amber-50 rounded-xl hover:bg-amber-100 transition border border-amber-200">
+          <i class="fa-solid fa-envelope text-amber-700 text-lg"></i>
+          <div><p class="text-xs font-bold text-gray-500">Email Address</p><p class="font-bold text-gray-800">lammimagarsa@gmail.com</p></div>
+        </a>
+
+        <a href="https://t.me/furtubusiness" target="_blank" class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition border border-blue-200">
+          <i class="fa-brands fa-telegram text-blue-600 text-xl"></i>
+          <div><p class="text-xs font-bold text-gray-500">Telegram Channel</p><p class="font-bold text-blue-800">t.me/furtubusiness</p></div>
+        </a>
+
+        <a href="https://t.me/jobshare4" target="_blank" class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition border border-blue-200">
+          <i class="fa-solid fa-paper-plane text-blue-600 text-lg"></i>
+          <div><p class="text-xs font-bold text-gray-500">Telegram Inbox</p><p class="font-bold text-blue-800">@jobshare4</p></div>
+        </a>
+
+        <div class="grid grid-cols-2 gap-2 pt-2">
+          <a href="https://www.facebook.com/share/1DWW3MmUN2/" target="_blank" class="p-3 bg-blue-60 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="https://www.tiktok.com/@lammiib?_r=1&_t=ZS-98qSw8Es90z" target="_blank" class="p-3 bg-black text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          <a href="https://x.com/LammiMagarsa" target="_blank" class="p-3 bg-gray-900 text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+          <a href="https://www.instagram.com/accounts/edit/?hl=en" target="_blank" class="p-3 bg-pink-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="https://www.linkedin.com/in/lammi-baqqala" target="_blank" class="p-3 bg-blue-800 text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://wa.me/251911698295" target="_blank" class="p-3 bg-green-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 text-xs"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         </div>
 
-        <div class="footer-nav">
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#" onclick="alert('Privacy Policy: Odeeffannoon dhuunfaa keessan guutummaatti kan eegameedha, qaama 3ffaaf hin darbu.')">Privacy Policy</a>
+        <div class="p-3 bg-amber-100 rounded-xl text-center border border-amber-300 font-bold text-amber-900 text-xs mt-2">
+          <i class="fa-solid fa-location-dot mr-1"></i> Finfinnee, Itoophiyaa
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: LIST OF SERVICES OFFERED -->
+    <section id="section-services-list" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-about')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">
+        Services We Offer <br>
+        <span class="text-sm italic font-normal text-amber-700">Tajaajiloota Nu Dhiyeessinu</span>
+      </h3>
+
+      <div class="space-y-3 text-sm font-medium text-gray-700">
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-book-open text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">1. Tutoring Services (Online & Physical)</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Barnootaa (Online & Qaamaan)</p>
+          </div>
         </div>
 
-        <p style="font-size: 0.75rem; color: #555;">&copy; 2026 Furtu General Trading. All Rights Reserved.</p>
-    </footer>
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-chalkboard-user text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">2. Training Services (Online Only)</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Leenjii (Online Qofa)</p>
+          </div>
+        </div>
 
-    <!-- App Logic JS -->
-    <script>
-        const posts = [
-            { title: "Baga Nagaan Dhuftan!", date: "2026-08-13", desc: "Furtu General Trading tajaajiloota dijitaalaa ammayyaawaa siif dhiyeessa.", icon: "fa-bullhorn" },
-            { title: "Tutoring & Educational Writing", date: "2026-08-10", desc: "Barattootaa fi qorattootaaf deegarsa cimsannaa qulqullina ol'aanaa qabu.", icon: "fa-book-open" }
-        ];
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+          <i class="fa-solid fa-bullhorn text-amber-600 text-lg"></i>
+          <div>
+            <p class="font-bold text-gray-800">3. Advertising Services</p>
+            <p class="text-xs italic text-gray-500">Tajaajila Beeksisaa</p>
+          </div>
+        </div>
+      </div>
 
-        const reviews = [
-            { name: "Sora T.", stars: 5, comment: "Tajaajilli isaanii baay'ee saffisaa fi amanamaadha!" },
-            { name: "Meti K.", stars: 5, comment: "Tutoring service isaaniin baay'ee itti gammadeera." }
-        ];
+      <button onclick="showSection('section-select-service')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-2 mt-4">
+        <span>Select the Service You Need</span>
+        <i class="fa-solid fa-check-double"></i>
+      </button>
+    </section>
 
-        let receipts = [];
+    <!-- PAGE 3: SELECT SERVICE -->
+    <section id="section-select-service" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-services-list')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
 
-        function renderPosts() {
-            const container = document.getElementById('postsContainer');
-            container.innerHTML = posts.map(p => `
-                <div class="post-card">
-                    <div class="post-media"><i class="fa-solid ${p.icon} fa-3x"></i></div>
-                    <div class="post-content">
-                        <span style="font-size: 0.75rem; color: var(--accent);">${p.date}</span>
-                        <h4 style="margin: 5px 0;">${p.title}</h4>
-                        <p style="font-size: 0.85rem; color: #aaa;">${p.desc}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">
+        Select the Service You Need <br>
+        <span class="text-sm italic font-normal text-amber-700">Tajaajila Barbaaddan Filadhaa</span>
+      </h3>
 
-        function renderReviews() {
-            const container = document.getElementById('reviewsContainer');
-            container.innerHTML = reviews.map(r => `
-                <div class="review-card">
-                    <div class="stars">${'⭐'.repeat(r.stars)}</div>
-                    <strong>${r.name}</strong>
-                    <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">${r.comment}</p>
-                </div>
-            `).join('');
-        }
+      <div class="space-y-3">
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="tutoring" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('tutoring')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Tutoring Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Barnootaa</span>
+          </div>
+        </label>
 
-        function openReceiptModal() { document.getElementById('receiptModal').style.display = 'flex'; }
-        function openAdminModal() { 
-            renderAdminReceipts();
-            document.getElementById('adminModal').style.display = 'flex'; 
-        }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="training" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('training')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Training Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Leenjii</span>
+          </div>
+        </label>
 
-        function uploadReceipt(e) {
-            e.preventDefault();
-            const name = document.getElementById('uName').value;
-            const phone = document.getElementById('uPhone').value;
-            const service = document.getElementById('uService').value;
+        <label class="flex items-center p-3.5 border rounded-xl cursor-pointer hover:bg-amber-50 transition border-gray-200">
+          <input type="radio" name="main_service" value="advertising" class="w-5 h-5 text-amber-600 accent-amber-600" onchange="handleMainServiceSelect('advertising')">
+          <div class="ml-3">
+            <span class="font-semibold text-gray-800 block">Advertising Services</span>
+            <span class="text-xs italic text-gray-500">Tajaajila Beeksisaa</span>
+          </div>
+        </label>
+      </div>
+    </section>
 
-            receipts.push({ id: Date.now(), name, phone, service, status: 'Pending' });
-            alert("Nagaheen kee milkaa'inaan fe'ameera!");
-            closeModal('receiptModal');
-        }
+    <!-- TUTORING FLOW -->
+    <section id="flow-tutoring" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
 
-        function submitReview(e) {
-            e.preventDefault();
-            const name = document.getElementById('revName').value;
-            const stars = parseInt(document.getElementById('revStar').value);
-            const comment = document.getElementById('revComment').value;
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Tutoring Services / <span class="text-sm font-normal italic text-amber-700">Tajaajila Barnootaa</span></h3>
+      <p class="text-sm text-gray-600">Select delivery method / Karaa tajaajila argachuu barbaaddan filadhaa:</p>
 
-            reviews.unshift({ name, stars, comment });
-            renderReviews();
-            e.target.reset();
-        }
+      <div class="space-y-3">
+        <button onclick="showSection('tutoring-physical')" class="w-full text-left p-4 border rounded-xl hover:bg-amber-50 font-semibold flex justify-between items-center transition">
+          <div>
+            <span class="block"><i class="fa-solid fa-house-user text-amber-600 mr-2"></i> Home to Home (Physical)</span>
+            <span class="text-xs italic font-normal text-gray-500">Qaamaan Manaa Manatti</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-400"></i>
+        </button>
 
-        function renderAdminReceipts() {
-            const list = document.getElementById('adminReceiptList');
-            if (receipts.length === 0) {
-                list.innerHTML = '<p style="color: #888;">Nagaheen fe\'ame hin jiru.</p>';
-                return;
-            }
-            list.innerHTML = receipts.map(r => `
-                <div style="background: #121218; padding: 12px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <strong>${r.name} (${r.phone})</strong><br>
-                        <small style="color: var(--accent);">${r.service}</small><br>
-                        <small style="color: #aaa;">Status: ${r.status}</small>
-                    </div>
-                    <button onclick="approveReceipt(${r.id})" style="background: var(--success); color: #fff; border:none; padding: 6px 12px; border-radius: 5px; cursor:pointer;">Approve ✅</button>
-                </div>
-            `).join('');
-        }
+        <button onclick="showSection('tutoring-online')" class="w-full text-left p-4 border rounded-xl hover:bg-amber-50 font-semibold flex justify-between items-center transition">
+          <div>
+            <span class="block"><i class="fa-solid fa-laptop text-amber-600 mr-2"></i> Online Tutoring</span>
+            <span class="text-xs italic font-normal text-gray-500">Karaa Toora Intarnetii</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-400"></i>
+        </button>
+      </div>
+    </section>
 
-        function approveReceipt(id) {
-            const item = receipts.find(r => r.id === id);
-            if(item) {
-                item.status = 'Approved';
-                renderAdminReceipts();
-            }
-        }
+    <!-- Tutoring Physical -->
+    <section id="tutoring-physical" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4 text-center">
+      <button onclick="showSection('flow-tutoring')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2 text-left">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
 
-        window.onload = function() {
-            renderPosts();
-            renderReviews();
-        }
-    </script>
+      <h3 class="text-lg font-bold text-gray-800">Home to Home (Physical Tutoring)</h3>
+      <p class="text-sm text-gray-600">Contact us for agreements / Waliigaltee fi odeeffannoo dabalataaf nu qunnamaa:</p>
+
+      <div class="bg-amber-50 p-4 rounded-xl space-y-2 border border-amber-200">
+        <p class="font-bold text-amber-900"><i class="fa-solid fa-phone text-amber-600 mr-1"></i> Direct Call / DM:</p>
+        <p class="text-lg font-mono font-bold text-gray-800">+251911698295 / +251922342606</p>
+      </div>
+    </section>
+
+    <!-- Tutoring Online Options -->
+    <section id="tutoring-online" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('flow-tutoring')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Online Tutoring - Delivery Method</h3>
+      <p class="text-sm text-gray-600">Select delivery method / Karaa tajaajila itti hordoftan filadhaa:</p>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="startTutoringOnline('Call (P2P)', 3000)" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-solid fa-phone-volume text-2xl text-amber-600 mb-2"></i>
+          <p class="font-bold text-sm">Call (P2P)</p>
+          <p class="text-xs text-green-600 font-bold mt-1">3,000 Birr</p>
+        </button>
+
+        <button onclick="startTutoringOnline('Via Telegram', 2500)" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-brands fa-telegram text-2xl text-blue-500 mb-2"></i>
+          <p class="font-bold text-sm">Via Telegram</p>
+          <p class="text-xs text-green-600 font-bold mt-1">2,500 Birr</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- TRAINING FLOW -->
+    <section id="flow-training" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Training Services (Online Only)</h3>
+      <p class="text-sm text-gray-600">Select Training Type / Leenjii barbaaddan filadhaa:</p>
+
+      <div class="space-y-3 text-sm">
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Online Income Training" class="accent-amber-600" checked>
+          <span class="ml-2 font-medium">Online (Digital) Income Training / Sharing</span>
+        </label>
+
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Counseling Organization" class="accent-amber-600">
+          <span class="ml-2 font-medium">Counseling Any Business Organization</span>
+        </label>
+
+        <label class="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <input type="radio" name="training_type" value="Child Treatment & Personal Attitude" class="accent-amber-600">
+          <span class="ml-2 font-medium">Child Treatment & Personal Attitude Change</span>
+        </label>
+        
+        <div class="border rounded-xl p-3 bg-gray-50 space-y-2">
+          <p class="font-bold text-gray-800"><i class="fa-solid fa-briefcase text-amber-600 mr-1"></i> Business Training Options:</p>
+          <div class="pl-2 space-y-2 text-xs">
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Starting Business" class="accent-amber-600"> Starting Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Zero Capital" class="accent-amber-600"> Zero Capital Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Promoting/Expanding" class="accent-amber-600"> Promoting / Expanding Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Direct Selling" class="accent-amber-600"> Direct Selling Business</label>
+            <label class="block cursor-pointer"><input type="radio" name="training_type" value="Business: Business Plan Writing" class="accent-amber-600"> Business Plan Writing</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t pt-4 space-y-3">
+        <h4 class="font-bold text-gray-800">Registration Form / <span class="italic font-normal text-xs text-gray-600">Unka Galmee</span></h4>
+        <input type="text" id="reg-name" placeholder="Full Name / Maqaa Guutuu" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <input type="email" id="reg-email" placeholder="Email Address / Teessoo Email" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <input type="tel" id="reg-phone" placeholder="Phone Number / Lakk. Bilbilaa" class="w-full p-3 border rounded-xl text-sm focus:outline-amber-600">
+        <button onclick="goToTrainingDelivery()" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl shadow hover:bg-amber-700 flex items-center justify-center gap-2">
+          <span>NEXT / ITTI FUFI</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Training Delivery Selection -->
+    <section id="training-delivery" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('flow-training')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Select Training Delivery Method / <span class="text-sm font-normal italic text-gray-600">Karaa Leenjiin Itti Kennamu Filadhu</span></h3>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="showTrainingPlans('p2p')" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-solid fa-phone-volume text-2xl text-amber-600 mb-2"></i>
+          <p class="font-bold text-sm">Call (P2P)</p>
+        </button>
+
+        <button onclick="showTrainingPlans('telegram')" class="p-4 border rounded-xl text-center hover:border-amber-600 hover:bg-amber-50 transition shadow-sm">
+          <i class="fa-brands fa-telegram text-2xl text-blue-500 mb-2"></i>
+          <p class="font-bold text-sm">Via Telegram</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- Training Plans - P2P -->
+    <section id="plans-p2p" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('training-delivery')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Call (P2P) Plans & Payment</h3>
+
+      <div class="space-y-2 text-sm">
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="1,000" checked> 1W, 1hr/d for 6 days</span>
+          <span class="font-bold text-green-600">1,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="800"> 2W, 1hr/d for 12 days</span>
+          <span class="font-bold text-green-600">800 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="3,000"> 1M, 1hr/d for 24 days</span>
+          <span class="font-bold text-green-600">3,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="8,000"> 3M, 1hr/d for 60 days + Cert</span>
+          <span class="font-bold text-green-600">8,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="p2p_plan" value="14,000"> 6M, 1hr/d for 120 days + Cert</span>
+          <span class="font-bold text-green-600">14,000 Birr</span>
+        </label>
+      </div>
+
+      <button onclick="goToPayment('Call P2P')" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
+        <span>NEXT / ITTI FUFI</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- Training Plans - Telegram -->
+    <section id="plans-telegram" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('training-delivery')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-lg font-bold text-gray-800">Via Telegram Plans & Payment</h3>
+
+      <div class="space-y-2 text-sm">
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="2,000" checked> 1M, 3d/w for 2 hrs each</span>
+          <span class="font-bold text-green-600">2,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="5,000"> 3M, 3d/w for 2 hrs each + Cert</span>
+          <span class="font-bold text-green-600">5,000 Birr</span>
+        </label>
+        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer hover:bg-amber-50">
+          <span><input type="radio" name="tg_plan" value="8,000"> 6M, 3d/w for 2 hrs each + Cert</span>
+          <span class="font-bold text-green-600">8,000 Birr</span>
+        </label>
+      </div>
+
+      <button onclick="goToPayment('Via Telegram')" class="w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
+        <span>NEXT / ITTI FUFI</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- ADVERTISING FLOW -->
+    <section id="flow-advertising" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Advertising Services</h3>
+      <p class="text-sm text-gray-600">Select Advertising Type / Tajaajila Beeksisaa Filadhaa:</p>
+
+      <div class="space-y-2 text-sm">
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Social Media" class="accent-amber-600" checked> Via Social Media (video or text posts)</label>
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Logo Design" class="accent-amber-600"> Logo Design</label>
+        <label class="block p-3 border rounded-xl cursor-pointer"><input type="radio" name="ad_type" value="Website Post" class="accent-amber-600"> Website Post</label>
+      </div>
+
+      <div class="border-t pt-4 space-y-3">
+        <p class="font-bold text-sm text-gray-700">For Price & More Information / Gatii fi Odeeffannoo Dabalataaf:</p>
+        <button onclick="window.open('tel:+251911698295', '_system')" class="block w-full bg-amber-600 text-white text-center font-bold py-3.5 rounded-xl shadow"><i class="fa-solid fa-phone mr-2"></i> Direct Call (+251 911 698 295)</button>
+        <button onclick="window.open('https://t.me/jobshare4', '_system')" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center font-bold py-3.5 rounded-xl shadow transition"><i class="fa-brands fa-telegram mr-2"></i> DM (Telegram) Inbox (@jobshare4)</button>
+      </div>
+    </section>
+
+    <!-- COMMON PAYMENT SECTION -->
+    <section id="section-payment" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4">
+      <button onclick="showSection('section-select-service')" class="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1 mb-2">
+        <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Make Payment / Kaffaltii Raawwachuu</h3>
+      
+      <div class="bg-gray-50 p-4 rounded-xl space-y-2 text-sm border border-gray-200">
+        <p class="font-bold text-gray-700">Account Numbers / Lakkoofsa Herregaa:</p>
+        <p class="text-gray-800"><strong>CBE:</strong> 1000XXXXXXXXX</p>
+        <p class="text-gray-800"><strong>Telebirr:</strong> 0911698295 / 0922342606</p>
+      </div>
+
+      <!-- Receipt Upload Form -->
+      <div class="space-y-3 border-t pt-3">
+        <h4 class="font-bold text-sm text-gray-800">Confirm Payment (Upload Receipt) / <span class="italic font-normal text-xs text-gray-600">Nagahee Fe'aa</span></h4>
+        <input type="file" id="receipt-file" accept="image/*,.pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100">
+        <button onclick="processConfirmation()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl shadow flex items-center justify-center gap-2">
+          <span>Confirm & Submit / Mirkaneessi & Ergi</span>
+          <i class="fa-solid fa-check"></i>
+        </button>
+      </div>
+
+      <!-- Action Links after confirmation -->
+      <div id="final-actions" class="hidden border-t pt-4 space-y-3 text-center">
+        <p class="text-sm text-green-700 font-bold bg-green-50 p-3 rounded-xl border border-green-200"><i class="fa-solid fa-circle-check text-lg mr-1"></i> Receipt submitted successfully! / Nagaheen keessan milkaa'inaan ergameera!</p>
+        
+        <div id="action-call-provider" class="hidden">
+          <button onclick="window.open('tel:+251911698295', '_system')" class="block w-full bg-amber-600 text-white font-bold py-3.5 rounded-xl shadow"><i class="fa-solid fa-phone mr-2"></i> Call Provider (+251 911 698 295)</button>
+        </div>
+        
+        <div id="action-telegram-group" class="hidden space-y-2">
+          <button onclick="window.open('https://t.me/furtubusiness', '_system')" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow transition"><i class="fa-brands fa-telegram mr-2"></i> Join Telegram Channel</button>
+          <p class="text-xs text-gray-500 mt-2">Send message <strong>"Registered"</strong> to Inbox @jobshare4.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer class="bg-amber-950 text-white pt-8 pb-6 border-t-4 border-amber-600 mt-8">
+    <div class="max-w-xl mx-auto px-4 text-center space-y-4">
+      
+      <!-- Slogan -->
+      <div class="space-y-1">
+        <p class="text-xl font-extrabold text-amber-400 tracking-wide uppercase">Your Place of Success!</p>
+        <p class="text-xs italic text-amber-200">Dirree Milkaayina Keessanii!</p>
+      </div>
+
+      <!-- FGT Logo & Name -->
+      <div class="flex items-center justify-center gap-3 pt-2">
+        <img src="80979199-bc4d-456e-8620-ba3f248ca598.png" alt="FGT Logo" class="w-12 h-12 rounded-full bg-white p-0.5 shadow-md">
+        <div class="text-left">
+          <p class="font-extrabold text-lg text-white leading-tight">Furtu General Trading</p>
+          <p class="text-xs text-amber-300">Technology Supported Services</p>
+        </div>
+      </div>
+
+      <!-- Follow Our Social Media Section -->
+      <div class="border-t border-amber-800/80 pt-4 space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-amber-300">Follow Our Social Media</p>
+        
+        <div class="flex flex-wrap justify-center gap-3 text-lg">
+          <a href="https://www.facebook.com/share/1DWW3MmUN2/" target="_blank" class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://t.me/furtubusiness" target="_blank" class="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@lammiib?_r=1&_t=ZS-98qSw8Es90z" target="_blank" class="w-9 h-9 rounded-full bg-black flex items-center justify-center hover:scale-110 transition shadow border border-gray-700"><i class="fa-brands fa-tiktok text-sm"></i></a>
+          <a href="https://x.com/LammiMagarsa" target="_blank" class="w-9 h-9 rounded-full bg-gray-900 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+          <a href="https://www.instagram.com/accounts/edit/?hl=en" target="_blank" class="w-9 h-9 rounded-full bg-pink-600 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/lammi-baqqala" target="_blank" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+          <a href="https://wa.me/251911698295" target="_blank" class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center hover:scale-110 transition shadow"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Address & Copyright -->
+      <div class="border-t border-amber-900 pt-3 text-xs text-amber-400/80 space-y-1">
+        <p><i class="fa-solid fa-location-dot mr-1"></i> Finfinnee, Itoophiyaa</p>
+        <p>&copy; 2026 Furtu General Trading (FGT). All Rights Reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let selectedDelivery = '';
+
+    function hideAll() {
+      const sections = document.querySelectorAll('main > section');
+      sections.forEach(s => s.classList.add('hidden'));
+    }
+
+    function showSection(id) {
+      hideAll();
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+      window.scrollTo(0,0);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+
+    function navClick(sectionId) {
+      toggleSidebar();
+      showSection(sectionId);
+    }
+
+    function toggleSearch() {
+      const searchBar = document.getElementById('search-bar');
+      searchBar.classList.toggle('hidden');
+    }
+
+    function openLoginModal() {
+      document.getElementById('login-modal').classList.remove('hidden');
+    }
+
+    function closeLoginModal() {
+      document.getElementById('login-modal').classList.add('hidden');
+    }
+
+    function handleMainServiceSelect(service) {
+      if (service === 'tutoring') showSection('flow-tutoring');
+      else if (service === 'training') showSection('flow-training');
+      else if (service === 'advertising') showSection('flow-advertising');
+    }
+
+    function startTutoringOnline(method, price) {
+      selectedDelivery = method;
+      showSection('section-payment');
+    }
+
+    function goToTrainingDelivery() {
+      const name = document.getElementById('reg-name').value;
+      const phone = document.getElementById('reg-phone').value;
+      if (!name || !phone) {
+        alert("Please fill Full Name and Phone Number! / Maaloo Maqaa fi Lakkoofsa Bilbilaa guutaa!");
+        return;
+      }
+      showSection('training-delivery');
+    }
+
+    function showTrainingPlans(type) {
+      if (type === 'p2p') {
+        selectedDelivery = 'Call P2P';
+        showSection('plans-p2p');
+      } else {
+        selectedDelivery = 'Via Telegram';
+        showSection('plans-telegram');
+      }
+    }
+
+    function goToPayment(deliveryMethod) {
+      selectedDelivery = deliveryMethod;
+      showSection('section-payment');
+    }
+
+    function processConfirmation() {
+      const fileInput = document.getElementById('receipt-file');
+      if (!fileInput.files.length) {
+        alert("Please upload receipt image! / Maaloo suuraa nagahee fe'aa!");
+        return;
+      }
+      
+      document.getElementById('final-actions').classList.remove('hidden');
+      if (selectedDelivery.includes('Call') || selectedDelivery.includes('P2P')) {
+        document.getElementById('action-call-provider').classList.remove('hidden');
+      } else {
+        document.getElementById('action-telegram-group').classList.remove('hidden');
+      }
+    }
+  </script>
 </body>
 </html>
