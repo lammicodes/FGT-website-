@@ -6,7 +6,7 @@
   <title>Furtu General Trading (FGT)</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons (Updated) -->
+  <!-- FontAwesome Icons (Updated v6.5.1) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     .hidden-section { display: none; }
@@ -14,9 +14,9 @@
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-  <!-- HEADER -->
+  <!-- HEADER UPPER NAV -->
   <header class="bg-amber-600 text-white p-3 shadow-lg sticky top-0 z-40 flex justify-between items-center">
-    <!-- Left: Hamburger + Logo + Title -->
+    <!-- Left: Drawer Menu Icon + HD Logo + Title -->
     <div class="flex items-center gap-3">
       <button onclick="toggleSidebar()" class="text-2xl p-1 focus:outline-none hover:text-amber-200 transition">
         <i class="fa-solid fa-bars"></i>
@@ -27,10 +27,13 @@
       </div>
     </div>
 
-    <!-- Right: Earn Money + Login/Account -->
+    <!-- Right: Earn Money + Search + Login/Account -->
     <div class="flex items-center gap-2">
       <button onclick="showSection('section-affiliate')" class="bg-green-500 hover:bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1 transition">
         <i class="fa-solid fa-coins"></i> EARN MONEY
+      </button>
+      <button onclick="toggleSearchModal()" class="text-lg p-1.5 hover:text-amber-200 transition">
+        <i class="fa-solid fa-magnifying-glass"></i>
       </button>
       <button onclick="openLoginModal()" class="flex items-center gap-1 bg-amber-700 hover:bg-amber-800 text-xs px-3 py-1.5 rounded-full shadow transition">
         <i class="fa-solid fa-user"></i> <span>Login</span>
@@ -38,7 +41,7 @@
     </div>
   </header>
 
-  <!-- SIDEBAR MENU -->
+  <!-- SIDE DRAWER MENU (OVERLAY) -->
   <div id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full transition-transform duration-300 ease-in-out bg-slate-900 text-white w-64 z-50 p-4 shadow-2xl flex flex-col justify-between">
     <div>
       <div class="flex items-center justify-between border-b border-gray-700 pb-3 mb-4">
@@ -49,21 +52,22 @@
         <button onclick="toggleSidebar()" class="text-xl text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
+      <!-- 5 Main Buttons Structure preserved -->
       <nav class="space-y-2">
         <button onclick="showSection('section-home'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
-          <i class="fa-solid fa-house"></i> Fuula Duraa (Home)
-        </button>
-        <button onclick="showSection('section-services'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
-          <i class="fa-solid fa-list-check"></i> Tajaajiloota (Services)
-        </button>
-        <button onclick="showSection('section-market'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
-          <i class="fa-solid fa-store"></i> Digital E-Commerce
-        </button>
-        <button onclick="showSection('section-affiliate'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
-          <i class="fa-solid fa-coins text-green-400"></i> Affiliate (Earn Money)
+          <i class="fa-solid fa-house"></i> Button 1: Home
         </button>
         <button onclick="showSection('section-about'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
-          <i class="fa-solid fa-circle-info"></i> Waayee Keenya (About)
+          <i class="fa-solid fa-circle-info"></i> Button 2: About Us
+        </button>
+        <button onclick="showSection('section-services'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
+          <i class="fa-solid fa-list-check"></i> Button 3: Services
+        </button>
+        <button onclick="showSection('section-market'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
+          <i class="fa-solid fa-store text-blue-400"></i> Button 4: E-Commerce
+        </button>
+        <button onclick="showSection('section-affiliate'); toggleSidebar();" class="w-full text-left py-2 px-3 rounded hover:bg-amber-600 flex items-center gap-3 transition">
+          <i class="fa-solid fa-coins text-green-400"></i> Button 5: Earn Money
         </button>
       </nav>
     </div>
@@ -100,27 +104,27 @@
 
     <!-- SERVICES SECTION -->
     <section id="section-services" class="hidden-section space-y-4">
-      <h2 class="text-xl font-bold text-gray-800 border-l-4 border-amber-600 pl-3">Tajaajiloota Keenya (Our Services)</h2>
+      <h2 class="text-xl font-bold text-gray-800 border-l-4 border-amber-600 pl-3">Tajaajiloota Keenya (Services We Offer)</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Service 1 -->
+        <!-- Service 1 (Updated) -->
         <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
           <div class="flex items-start gap-3">
             <div class="p-3 bg-amber-100 text-amber-700 rounded-lg text-xl"><i class="fa-solid fa-book-open-reader"></i></div>
             <div>
-              <h3 class="font-bold text-gray-800">1. Tutoring & Educational Writing</h3>
-              <p class="text-xs text-gray-600 mt-1">Tutoring & any educational writing Services (Online & Physical) - Research, Assignments, training manuals, etc.</p>
+              <h3 class="font-bold text-gray-800">1. Tutoring & Writing Services</h3>
+              <p class="text-xs text-gray-600 mt-1">Tutoring & any educational writing Services (Online & Physical)</p>
             </div>
           </div>
         </div>
 
-        <!-- Service 2 -->
+        <!-- Service 2 (Updated) -->
         <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
           <div class="flex items-start gap-3">
             <div class="p-3 bg-blue-100 text-blue-700 rounded-lg text-xl"><i class="fa-solid fa-rectangle-ad"></i></div>
             <div>
               <h3 class="font-bold text-gray-800">2. Advertising Services</h3>
-              <p class="text-xs text-gray-600 mt-1">Advertising services for any business organization (Digital, Social Media, and Direct Promotions).</p>
+              <p class="text-xs text-gray-600 mt-1">Advertising services for any business organization</p>
             </div>
           </div>
         </div>
@@ -131,12 +135,12 @@
             <div class="p-3 bg-purple-100 text-purple-700 rounded-lg text-xl"><i class="fa-solid fa-chalkboard-user"></i></div>
             <div>
               <h3 class="font-bold text-gray-800">3. Professional Trainings</h3>
-              <p class="text-xs text-gray-600 mt-1">Leenjiileeshiitiif qophaa'an (Skill Development, Business Plan writing, Software & AI tools).</p>
+              <p class="text-xs text-gray-600 mt-1">Leenjiilee garaa garaa (Skill Development & AI tools).</p>
             </div>
           </div>
         </div>
 
-        <!-- Service 4 (New) -->
+        <!-- Service 4 (New Added) -->
         <div class="bg-white p-4 rounded-lg shadow border-2 border-amber-500">
           <div class="flex items-start gap-3">
             <div class="p-3 bg-green-100 text-green-700 rounded-lg text-xl"><i class="fa-solid fa-store"></i></div>
@@ -151,12 +155,12 @@
       </div>
     </section>
 
-    <!-- MARKET PLACE SECTION (New Service 4) -->
+    <!-- MARKET PLACE SECTION (Digital E-commerce) -->
     <section id="section-market" class="hidden-section space-y-4">
       <div class="flex justify-between items-center border-l-4 border-blue-600 pl-3">
         <div>
           <h2 class="text-xl font-bold text-gray-800">Digital E-commerce & Market Place</h2>
-          <p class="text-xs text-gray-500">Meeshaalee keessan post godhaa, maamila wajjin wal-qunnamaa.</p>
+          <p class="text-xs text-gray-500">Meeshaalee fi tajaajila keessan post godhaa.</p>
         </div>
         <button onclick="openPostProductModal()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-2 rounded-lg shadow">
           <i class="fa-solid fa-plus mr-1"></i> Post (Store) Product
@@ -165,7 +169,7 @@
 
       <!-- Pricing Plans Info -->
       <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-200 text-xs space-y-2">
-        <h3 class="font-bold text-blue-900 text-sm"><i class="fa-solid fa-tags"></i> Tariffa Maxxansa (Pricing Subscription):</h3>
+        <h3 class="font-bold text-blue-900 text-sm"><i class="fa-solid fa-tags"></i> Tariffa Maxxansa Subscription:</h3>
         <div class="grid grid-cols-3 gap-2 text-center">
           <div class="bg-white p-2 rounded shadow-sm border border-blue-100">
             <span class="block font-bold text-gray-700">Ji'a 3f</span>
@@ -180,7 +184,7 @@
             <span class="text-blue-600 font-extrabold text-sm">200 Birr</span>
           </div>
         </div>
-        <p class="text-[11px] text-gray-500 italic">* Yeroon abonimentii erga dhumee booda maxansichi otomaatikiin fuula gabaa irraa ni haqama.</p>
+        <p class="text-[11px] text-gray-500 italic">* Yeroon abonimentii erga dhumee booda maxxansichi otomaatikiin fuula gabaa irraa ni haqama.</p>
       </div>
 
       <!-- Sample Product Grid -->
@@ -192,7 +196,7 @@
           <div class="p-3 space-y-1">
             <span class="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded">Active</span>
             <h4 class="font-bold text-sm text-gray-800">Fakkeenya Maxxansa Meeshaa</h4>
-            <p class="text-xs text-gray-500 line-clamp-2">Ibsa guutuu meeshaa gurguramuuf qophaa'e (Suuraa 4 hanga danda'amu wajjin).</p>
+            <p class="text-xs text-gray-500 line-clamp-2">Ibsa guutuu meeshaa gurguramuuf qophaa'e (Suuraa/Viidiyo 4 wajjin).</p>
             <div class="flex justify-between items-center pt-2 border-t text-xs">
               <span class="font-bold text-blue-600">--- Birr</span>
               <button class="bg-amber-500 text-white px-2 py-1 rounded text-[11px] font-bold">Contact Owner</button>
@@ -202,7 +206,7 @@
       </div>
     </section>
 
-    <!-- AFFILIATE / EARN MONEY SECTION -->
+    <!-- AFFILIATE PROGRAM SECTION (EARN MONEY) -->
     <section id="section-affiliate" class="hidden-section space-y-4">
       <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-5 rounded-2xl shadow-lg space-y-3">
         <div class="flex justify-between items-start">
@@ -245,10 +249,10 @@
         </h3>
         
         <ul class="space-y-2 list-disc pl-4">
-          <li><strong>Badhaasa Afeerraa (0.3 Birr):</strong> Namni 1 nama biroo afeeruun, namni sun saayitiichatti Login gochuun fayyadamaa tajaajila keenyaa ta'uun mirkanaa'an <strong>0.3 Birr</strong> per invitation argatta.</li>
-          <li><strong>Ulaagaa Maallaqa Baafachuu (Withdrawal Rule):</strong> Yeroo jalqabaaf hanga maallaqni keessan <strong>100 Birr</strong> gahuufi kuufamutti baafachuun hin danda'amu. 100 Birr erga geessaniin booda garuu maallaqa afeerraan argattan hanga barbaaddan baafachuu dandeessu.</li>
-          <li><strong>Adeemsa Kaffaltii (Withdrawal Process):</strong> Qabduu "Withdraw" cuqqaaluun toftaa kaffaltii fi lakkoofsa herrega baankii (Payment details) galchitu. Kaffaltiin keessan <em>Pending</em> ta'ee Adminiif ergama, Adminiin erga mirkaneessee booda kaffaltiin keessan ni raawwatama.</li>
-          <li><strong>Bonus Level 2 (5%):</strong> Namoonni isin afeertan sunis akkasuma nama biroo afeeranii maallaqa yeroo baafatan (withdraw), maallaqa isaan baafatan irraa <strong>5% Bonus</strong> herrega keessan irratti isaaniif kaffalame irraa otomaatikiin isiniif galii ta'a!</li>
+          <li><strong>Badhaasa Afeerraa (0.3 Birr):</strong> Namni 1 nama biroo afeeruun yoo namni sun Login gochuun fayyadamaa tajaajila keenyaa ta'uun mirkanaa'e <strong>0.3 Birr per invitation</strong> argatta.</li>
+          <li><strong>Ulaagaa Maallaqa Baafachuu (Withdrawal Rule):</strong> Yeroo jalqabaaf hanga maallaqni keessan <strong>100 Birr ol</strong> kuufatutti baafachuun hin danda'amu. Sana booda maallaqa afeerraan argattan hanga barbaaddan baafachuu dandeessu.</li>
+          <li><strong>Adeemsa Kaffaltii (Withdrawal Process):</strong> Button "Withdraw" cuqqaaluun toftaa kaffaltii (payment method) fi lakk. herregaa galchitu. Confirm yeroo gootan <em>Pending</em> ta'a, Adminiin arguun kaffaltii raawwata.</li>
+          <li><strong>Bonus Level 2 (5%):</strong> Namoonni isin afeertan sunis akkasuma nama biroo afeeranii maallaqa yeroo withdraw godhan, maallaqa withdraw ta'e irraa <strong>5% Bonus</strong> herrega keessan irratti galii ta'a.</li>
         </ul>
       </div>
     </section>
@@ -265,7 +269,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER SECTION -->
   <footer class="bg-slate-900 text-white p-6 mt-6 border-t-2 border-amber-600">
     <div class="container mx-auto text-center space-y-4">
       <h3 class="text-lg font-black tracking-wider text-amber-500">YOUR PLACE OF SUCCESS!</h3>
@@ -283,7 +287,7 @@
           <a href="#" class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center hover:opacity-80"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" class="w-9 h-9 rounded-full bg-sky-500 flex items-center justify-center hover:opacity-80"><i class="fa-brands fa-telegram"></i></a>
           <a href="#" class="w-9 h-9 rounded-full bg-black flex items-center justify-center hover:opacity-80"><i class="fa-brands fa-tiktok"></i></a>
-          <!-- Twitter / X Icon (Line 631 area fixed) -->
+          <!-- Twitter / X Icon (Line 631 area fixed with fa-x-twitter) -->
           <a href="#" target="_blank" class="w-9 h-9 rounded-full bg-black flex items-center justify-center text-white hover:opacity-80 transition"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" class="w-9 h-9 rounded-full bg-pink-600 flex items-center justify-center hover:opacity-80"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" class="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center hover:opacity-80"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -298,7 +302,16 @@
     </div>
   </footer>
 
-  <!-- MODALS (Popups) -->
+  <!-- MODALS -->
+
+  <!-- Search Modal -->
+  <div id="modal-search" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xs p-4 space-y-3 relative">
+      <button onclick="toggleSearchModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="font-bold text-gray-800 text-sm">Search FGT</h3>
+      <input type="text" placeholder="Barbaadi (Search)..." class="w-full border p-2 text-xs rounded focus:outline-amber-600">
+    </div>
+  </div>
 
   <!-- Login Modal -->
   <div id="modal-login" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
@@ -311,19 +324,19 @@
     </div>
   </div>
 
-  <!-- Post Product Modal (For Service 4) -->
+  <!-- Post Product Modal -->
   <div id="modal-post-product" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-5 space-y-3 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closePostProductModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
-      <h3 class="font-bold text-gray-800 text-base border-b pb-2">Store / Post Product</h3>
-      <p class="text-[11px] text-gray-500">Suuraa ykn Viidiyo xiqqaatti (Hanga 4) maxxansaa.</p>
+      <h3 class="font-bold text-gray-800 text-base border-b pb-2">Post (Store) Product</h3>
+      <p class="text-[11px] text-gray-500">Photo ykn Video (Hanga 4) description guutuu wajjin galchaa.</p>
       
       <input type="text" placeholder="Title meeshaa keessanii" class="w-full border p-2 text-xs rounded">
       <textarea placeholder="Ibsa guutuu (Full Description)..." class="w-full border p-2 text-xs rounded h-20"></textarea>
       <input type="text" placeholder="Gatiiti (Price in Birr)" class="w-full border p-2 text-xs rounded">
       
       <div>
-        <label class="text-[11px] font-bold text-gray-700 block mb-1">Filannoo Subscription (Tariffa):</label>
+        <label class="text-[11px] font-bold text-gray-700 block mb-1">Tariffa Subscription:</label>
         <select class="w-full border p-2 text-xs rounded bg-gray-50">
           <option>Ji'a 3f - 100 Birr</option>
           <option>Ji'a 6f - 150 Birr</option>
@@ -332,11 +345,11 @@
       </div>
 
       <div>
-        <label class="text-[11px] font-bold text-gray-700 block mb-1">Suuraa/Video (Max 4 Upload):</label>
+        <label class="text-[11px] font-bold text-gray-700 block mb-1">Photo / Video (Max 4):</label>
         <input type="file" multiple class="w-full text-xs text-gray-500 border p-1 rounded">
       </div>
 
-      <button onclick="alert('Form submit ta\'eera! Adminiin sakatta\'ee akkuma kaffaltiin mirkanaa\'een ni maxxansa.')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded text-xs">
+      <button onclick="alert('Product submission ergameera! Adminiin sakatta\'ee yee mirkanaa\'e ni maxxansa.')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded text-xs">
         Submit Product
       </button>
     </div>
@@ -346,12 +359,12 @@
   <div id="modal-withdraw" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-xs p-5 space-y-3 relative">
       <button onclick="closeWithdrawModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
-      <h3 class="font-bold text-gray-800 text-base border-b pb-2">Maallaqa Baafachuu (Withdrawal)</h3>
+      <h3 class="font-bold text-gray-800 text-base border-b pb-2">Withdraw (Maallaqa Baafachuu)</h3>
       
-      <p class="text-[11px] text-gray-600">Yeroo 1ffaa maallaqa baafachuuf maallaqni keessan **100 Birr** gahuu qaba.</p>
+      <p class="text-[11px] text-gray-600">Yeroo 1ffaa maallaqa baafachuuf 100 Birr ol kuufachuu qabdu.</p>
       
       <div>
-        <label class="text-[11px] font-bold text-gray-700 block mb-1">Toftaa Kaffaltii (Payment Method):</label>
+        <label class="text-[11px] font-bold text-gray-700 block mb-1">Payment Method:</label>
         <select class="w-full border p-2 text-xs rounded">
           <option>CBE (Baankii Daldala Itoophiyaa)</option>
           <option>Telebirr</option>
@@ -359,19 +372,17 @@
         </select>
       </div>
 
-      <input type="text" placeholder="Maqaa Guutuu Account Owner" class="w-full border p-2 text-xs rounded">
-      <input type="text" placeholder="Lakk. Herrega Baankii / Telebirr" class="w-full border p-2 text-xs rounded">
-      <input type="number" placeholder="Hamma Baafattan (Amount in Birr)" class="w-full border p-2 text-xs rounded">
+      <input type="text" placeholder="Lakk. Herregaa (Account Number)" class="w-full border p-2 text-xs rounded">
+      <input type="number" placeholder="Hamma Baafattan (Amount)" class="w-full border p-2 text-xs rounded">
 
-      <button onclick="alert('Ajajni maallaqa baafachuu PENDING ta\'ee ergameera. Adminiin qoratee ni kaffala!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded text-xs">
-        Request Withdraw
+      <button onclick="alert('Ajajni Withdraw PENDING ta\'ee ergameera. Adminiin kaffaltii ni raawwata!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded text-xs">
+        Confirm & Request
       </button>
     </div>
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Navigation Routing
     function showSection(sectionId) {
       const sections = ['section-home', 'section-services', 'section-market', 'section-affiliate', 'section-about'];
       sections.forEach(id => {
@@ -387,13 +398,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Sidebar
     function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('-translate-x-full');
+      document.getElementById('sidebar').classList.toggle('-translate-x-full');
     }
 
-    // Modals
+    function toggleSearchModal() {
+      const m = document.getElementById('modal-search');
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    }
+
     function openLoginModal() {
       document.getElementById('modal-login').classList.remove('hidden');
       document.getElementById('modal-login').classList.add('flex');
@@ -421,15 +435,13 @@
       document.getElementById('modal-withdraw').classList.remove('flex');
     }
 
-    // Affiliate How it Works toggle
     function toggleHowItWorks() {
-      const box = document.getElementById('howItWorksBox');
-      box.classList.toggle('hidden');
+      document.getElementById('howItWorksBox').classList.toggle('hidden');
     }
 
     function generateReferralLink() {
       navigator.clipboard.writeText("https://fgtfurtubusiness.vercel.app/?ref=USER123");
-      alert("Linkiin Afeerraa keessanii copy ta'eera! Hiriyoota keessaniif ergaa.");
+      alert("Linkiin Afeerraa copy ta'eera!");
     }
   </script>
 </body>
