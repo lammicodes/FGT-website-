@@ -522,6 +522,44 @@
       <input type="text" id="bankDetails" placeholder="Fakkeenya: CBE - 1000xxxxxxxxx" class="w-full p-2 bg-gray-900 border border-gray-600 rounded text-white text-xs focus:border-amber-500 outline-none">
       <button onclick="requestWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition-all">
         Confirm & Submit Request
+      </button>
+      <p id="statusMessage" class="text-center text-[11px] text-amber-400 hidden mt-1">⏳ Status: Pending (Admin is reviewing...)</p>
+    </div>
+  </div>
+</div>
+
+<!-- HOJII JAVASCRIPT ISAA -->
+<script>
+function toggleHowItWorks() {
+  const section = document.getElementById('howItWorksSection');
+  section.classList.toggle('hidden');
+}
+
+function toggleAffiliateInfo() {
+  const section = document.getElementById('affiliateWalletSection');
+  section.classList.toggle('hidden');
+}
+
+function requestWithdrawal() {
+  const bankInput = document.getElementById('bankDetails').value;
+  const statusMsg = document.getElementById('statusMessage');
+  
+  if (!bankInput.trim()) {
+    alert("Maaloo dursa lakk. herrega baankii keessan galchaa!");
+    return;
+  }
+  
+  // Maallaqa jiru dursa qorachuu (Fakkeenyaaf 100 gahuu isaa)
+  const balance = parseFloat(document.getElementById('walletBalance').innerText);
+  if (balance < 100) {
+    alert("Ulaagaan hin guunne! Maallaqni kuufame dursa 100 Birr gahuu qaba.");
+    return;
+  }
+
+  statusMsg.classList.remove('hidden');
+  alert("Ajajni keessan ergameera! Admin yoo mirkaneessu kaffaltiin keessan ni raawwatama.");
+}
+</script>
 
     <!-- PAGE 3: SELECT SERVICE --> 
     <section id="section-select-service" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4"> 
