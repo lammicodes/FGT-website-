@@ -408,6 +408,86 @@
       </button> 
     </section> 
 
+    <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM (BACK BUTTON WALIIN) -->
+<div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
+      <i class="fa-solid fa-users-rectangle text-2xl"></i>
+    </div>
+    <h3 class="text-lg font-bold text-gray-900">4. Affiliate Program / Afeerraa Daldalaa</h3>
+  </div>
+  
+  <p class="text-gray-600 text-sm mb-4">
+    Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+  </p>
+
+  <!-- BUTTONS -->
+  <div class="flex flex-col gap-3">
+    <button onclick="toggleAffiliateInfo()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-extrabold py-2.5 px-4 rounded-xl transition-all text-center tracking-wide shadow-sm">
+      EARN MONEY
+    </button>
+    
+    <button onclick="toggleHowItWorks()" class="w-full bg-transparent border-2 border-amber-500 text-amber-600 font-bold hover:bg-amber-500/10 py-2 px-4 rounded-xl transition-all text-center text-sm">
+      How it works and benefits / Akkamitti hojjeta?
+    </button>
+  </div>
+
+  <!-- KUTAA IBSAA (HOW IT WORKS DESCRIPTION) -->
+  <div id="howItWorksSection" class="hidden mt-4 p-4 bg-gray-50 border-l-4 border-amber-500 rounded-xl text-sm leading-relaxed text-gray-700">
+    <h4 class="font-bold text-amber-600 mb-2 text-base">Akkamitti Hojjeta?</h4>
+    <ul class="list-disc pl-4 space-y-2">
+      <li><strong class="text-gray-900">Afeerraa:</strong> Namni ati afeerte yoo galmaa'e, afeerraa tokkoof <span class="text-green-600 font-extrabold">0.3 Birr</span> argattu.</li>
+      <li><strong class="text-gray-900">Yeroo Jalqabaa:</strong> Maallaqni kuufame <span class="text-green-600 font-extrabold">100 Birr</span> yommuu gahu baasuu dandeessu.</li>
+      <li><strong class="text-gray-900">Daangaa Malee:</strong> Sana booda daangaa tokko malee afeertanii baafachuu dandeessu.</li>
+      <li><strong class="text-gray-900">Gadaantee 2ffaa:</strong> Namni ati afeerte sun yommuu maallaqa herrega isaa irraa baafatu, ati <span class="text-green-600 font-extrabold">5% bonus</span> dabalataa argatta!</li>
+    </ul>
+  </div>
+
+  <!-- KUTAA ACCOUNT USER (USER WALLET) -->
+  <div id="affiliateWalletSection" class="hidden mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+    <div class="grid grid-cols-2 gap-2 text-center mb-4">
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Namni Afeerrame</span>
+        <span id="invitedCount" class="text-xl font-black text-amber-600">12</span>
+      </div>
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Maallaqa Kuufame</span>
+        <span id="walletBalance" class="text-xl font-black text-green-400">103.60 ETB</span>
+      </div>
+    </div>
+
+    <!-- UNKA KAFFALTII -->
+    <div id="withdrawForm" class="space-y-2">
+      <label class="block text-xs text-gray-700 font-bold">Toftaa Kaffaltii / Lakk. Herrega Baankii:</label>
+      <input type="text" id="bankDetails" placeholder="Fakkeenya: CBE - 1000xxxxxxxxx" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-gray-800 text-sm focus:border-amber-500 outline-none">
+      <button onclick="requestWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-2.5 rounded-xl text-sm transition-all shadow-md">
+        Confirm & Submit Request
+      </button>
+      <p id="statusMessage" class="text-center text-sm text-amber-600 hidden mt-1 font-bold">⏳ Status: Pending (Admin is reviewing...)</p>
+    </div>
+  </div>
+
+  <!-- BUTTON DEEBII (BACK BUTTON HAARAA) -->
+  <div class="mt-6 pt-4 border-t border-gray-100">
+    <button onclick="showSection('section-select-service')" class="flex items-center justify-center gap-2 text-sm font-bold text-gray-500 hover:text-amber-600 transition-all mx-auto">
+      <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+    </button>
+  </div>
+</div>
+
+<script>
+// BILBILA NAMAA AKKA HIN BAASNE TO'ACHUU (BACK BUTTON CONTROL)
+window.onload = function() {
+  window.history.pushState({ page: 1 }, "", "");
+};
+
+window.onpopstate = function(event) {
+  // Yommuu namni back button bilbilaa cuqaasu fuuluma kanaan duraatti deebisa
+  showSection('section-select-service');
+  window.history.pushState({ page: 1 }, "", "");
+};
+</script>
+
     <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM (STYLE WALSIMMATE) -->
 <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
   <div class="flex items-center gap-3 mb-4">
