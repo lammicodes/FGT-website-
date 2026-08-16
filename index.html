@@ -755,18 +755,37 @@ function filterProofs(serviceType) {
   </div>
 </section>
 
-<script>
-// BILBILA NAMAA AKKA HIN BAASNE TO'ACHUU (BACK BUTTON CONTROL)
+// WINDOW MANAGEMENTS (KALLATTIIN SARARA 690 GUBBAATTI BAKKA BUUSI)
 window.onload = function() {
   window.history.pushState({ page: 1 }, "", "");
+  // Jalqaba irratti saanduqa Affiliate fi Testimonials akka dhokatan gochuu
+  document.getElementById('section-affiliate').classList.add('hidden');
+  document.getElementById('section-testimonials').classList.add('hidden');
 };
 
 window.onpopstate = function(event) {
-  // Yommuu namni back button bilbilaa cuqaasu fuuluma kanaan duraatti deebisa
   showSection('section-select-service');
   window.history.pushState({ page: 1 }, "", "");
 };
-</script>
+
+// FUNKTION SHOWSECTION ISA DHALATAA JIJJIIRUU
+// Koodii kanaan tajaajiloonni haaraan ofumaan dacha'anii dhokatu
+const originalShowSection = showSection;
+showSection = function(sectionId) {
+  // Dursa kutaalee haaraa hunda ni dhoksa
+  document.getElementById('section-affiliate').classList.add('hidden');
+  document.getElementById('section-testimonials').classList.add('hidden');
+  
+  // Yoo inni filatame kutaalee haaraa ta'e akka mul'atu godha
+  if (sectionId === 'section-affiliate') {
+    document.getElementById('section-affiliate').classList.remove('hidden');
+  } else if (sectionId === 'section-testimonials') {
+    document.getElementById('section-testimonials').classList.remove('hidden');
+  } else {
+    // Koodii weebsaayitiikee isa dhalataa hojjechiisa
+    originalShowSection(sectionId);
+  }
+};
 
 <!-- HOJII JAVASCRIPT ISAA -->
 <script>
