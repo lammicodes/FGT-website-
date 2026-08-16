@@ -474,6 +474,122 @@
     </button>
   </div>
 </div>
+<!-- KUTAA RAGAALEE MILKAA'INAA (ADMIN TESTIMONIALS - DISPLAY ONLY) -->
+<div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
+  
+  <!-- MATA DUREE -->
+  <div class="flex items-center gap-3 mb-4">
+    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
+      <i class="fa-solid fa-file-shield text-2xl"></i>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold text-gray-900">Ragaalee fi Mirkaneeffannoo</h3>
+      <p class="text-xs text-gray-500">Testimonials from our successful clients</p>
+    </div>
+  </div>
+
+  <p class="text-gray-600 text-sm mb-6">
+    Ragaalee dhugaa fi mirkaneeffannoota tajaajiloota keenya irraa argataman asii gadiitti dhangala'anii jiran dhandhamadhaa.
+  </p>
+
+  <!-- FILTARII (BUTTONS) GOSA TAJAAJILAA ADDAN BAASUUF -->
+  <div class="flex gap-2 overflow-x-auto pb-4 scrollbar-none">
+    <button onclick="filterProofs('all')" id="btn-all" class="bg-amber-500 text-black text-xs font-extrabold px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-sm">Hunda (All)</button>
+    <button onclick="filterProofs('tutoring')" id="btn-tutoring" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Tutoring</button>
+    <button onclick="filterProofs('training')" id="btn-training" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Training</button>
+    <button onclick="filterProofs('advertising')" id="btn-advertising" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Advertising</button>
+    <button onclick="filterProofs('affiliate')" id="btn-affiliate" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Affiliate</button>
+  </div>
+
+  <!-- SAANDUQA RAGAALEE (ADMIN CAN ADD MORE HTML BLOCKS HERE TO POST) -->
+  <div id="proofsContainer" class="space-y-4">
+    
+    <!-- RAGAA 1FFAA: TUTORING PROOF -->
+    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-sm space-y-3 transition-all" data-proof="tutoring">
+      <div class="flex justify-between items-center">
+        <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase tracking-wider">Tutoring / Barnoota</span>
+        <span class="text-gray-400 text-[11px] font-medium">Verified / Mirkanaa'aa</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed text-xs">
+        "Barataan keenya leenjii kanaan dura fudhate qabxii gaarii fiduu isaa ragaan kaffaltii fi nagahee isaa kunoo ti."
+      </p>
+      <!-- AGARSIISA FAILII (PDF) -->
+      <div class="flex items-center justify-between p-2.5 bg-white border border-gray-200 rounded-xl">
+        <div class="flex items-center gap-2 text-amber-600 font-bold text-xs">
+          <i class="fa-solid fa-file-pdf text-base"></i>
+          <span>Qabxii_Mirkaneeffannoo.pdf</span>
+        </div>
+        <a href="#" class="text-[11px] text-blue-600 font-bold hover:underline">Ilaali / View</a>
+      </div>
+    </div>
+
+    <!-- RAGAA 2FFAA: TRAINING PROOF -->
+    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-sm space-y-3 transition-all" data-proof="training">
+      <div class="flex justify-between items-center">
+        <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase tracking-wider">Training / Leenjii</span>
+        <span class="text-gray-400 text-[11px] font-medium">Verified / Mirkanaa'aa</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed text-xs">
+        "Mirkaneeffannoo leenjii fi Viidiyoo gabaabaa waa'ee dandeettii daldalaa irratti kenname."
+      </p>
+      <!-- AGARSIISA VIIDIYOO (VIDEO PROOF) -->
+      <div class="p-1 bg-white border border-gray-200 rounded-xl overflow-hidden">
+        <video controls class="w-full rounded-lg max-h-40 bg-black">
+          <source src="https://w3schools.com" type="video/mp4">
+          Browser kee video kana hin fidu.
+        </video>
+      </div>
+    </div>
+
+    <!-- RAGAA 3FFAA: AFFILIATE PROOF -->
+    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-sm space-y-3 transition-all" data-proof="affiliate">
+      <div class="flex justify-between items-center">
+        <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase tracking-wider">Affiliate / Afeerraa</span>
+        <span class="text-gray-400 text-[11px] font-medium">Verified / Mirkanaa'aa</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed text-xs">
+        "Miseensi keenya afeerraan maallaqa kuufatee baasuu (withdraw) isaa ragaan herrega baankii nagahee kaffaltii kunoo ti."
+      </p>
+      <!-- AGARSIISA SAGALEE (AUDIO PROOF) -->
+      <div class="p-2 bg-white border border-gray-200 rounded-xl">
+        <audio controls class="w-full h-8">
+          <source src="#" type="audio/mpeg">
+          Browser kee audio hin fidu.
+        </audio>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JAVASCRIPT FILTARII DOOMAAF (DISPLAY MANAGEMENT) -->
+<script>
+function filterProofs(serviceType) {
+  const container = document.getElementById('proofsContainer');
+  const posts = container.children;
+  
+  // Button bifa isaanii jijjiiruu (Active styling)
+  const buttons = ['all', 'tutoring', 'training', 'advertising', 'affiliate'];
+  buttons.forEach(btn => {
+    const el = document.getElementById('btn-' + btn);
+    if (btn === serviceType) {
+      el.className = "bg-amber-500 text-black text-xs font-extrabold px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-sm";
+    } else {
+      el.className = "bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all";
+    }
+  });
+
+  // Maxxansoota gadi dhangala'an addaan baasuu
+  for (let post of posts) {
+    const postService = post.getAttribute('data-proof');
+    if (serviceType === 'all' || postService === serviceType) {
+      post.style.display = "block";
+    } else {
+      post.style.display = "none";
+    }
+  }
+}
+</script>
 
 <script>
 // BILBILA NAMAA AKKA HIN BAASNE TO'ACHUU (BACK BUTTON CONTROL)
