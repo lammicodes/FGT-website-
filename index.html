@@ -645,47 +645,115 @@ function filterProofs(serviceType) {
       <div class="flex justify-between items-center">
         <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase">Affiliate / Afeerraa</span>
         <span class="text-gray-400 text-[11px]">Verified</span>
-      </div>
-      <p class="text-gray-700 leading-relaxed text-xs">"Miseensi keenya afeerraan maallaqa kuufatee baasuu (withdraw) isaa ragaan herrega baankii nagahee kaffaltii kunoo ti."</p>
+<!-- PAGE 4: AFFILIATE PROGRAM SECTION (DHOKATAA TA'EE JALQABA) -->
+<section id="section-affiliate" class="hidden p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
+      <i class="fa-solid fa-users-rectangle text-2xl"></i>
     </div>
-
+    <h3 class="text-lg font-bold text-gray-900">4. Affiliate Program / Afeerraa Daldalaa</h3>
   </div>
+  
+  <p class="text-gray-600 text-sm mb-4">
+    Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+  </p>
 
-  <!-- BUTTON DEEBII (BACK BUTTON GUUTUU FI NAGAYA TA'E) -->
-  <div class="mt-6 pt-4 border-t border-gray-100">
-    <button onclick="showSection('section-select-service')" class="flex items-center justify-center gap-2 text-sm font-bold text-gray-500 hover:text-amber-600 transition-all mx-auto">
-      <i class="fa-solid fa-arrow-left"></i> ← Back / Gara Duubatti
+  <div class="flex flex-col gap-3">
+    <button onclick="toggleAffiliateInfo()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-extrabold py-2.5 px-4 rounded-xl transition-all text-center tracking-wide shadow-sm">
+      EARN MONEY
+    </button>
+    
+    <button onclick="toggleHowItWorks()" class="w-full bg-transparent border-2 border-amber-500 text-amber-600 font-bold hover:bg-amber-500/10 py-2 px-4 rounded-xl transition-all text-center text-sm">
+      How it works and benefits / Akkamitti hojjeta?
     </button>
   </div>
-</div>
 
-<script>
-function filterProofs(serviceType) {
-  const container = document.getElementById('proofsContainer');
-  const posts = container.children;
-  
-  const buttons = ['all', 'tutoring', 'training', 'advertising', 'affiliate'];
-  buttons.forEach(btn => {
-    const el = document.getElementById('btn-' + btn);
-    if (el) {
-      if (btn === serviceType) {
-        el.className = "bg-amber-500 text-black text-xs font-extrabold px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-sm";
-      } else {
-        el.className = "bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all";
-      }
-    }
-  });
+  <!-- HOW IT WORKS DESCRIPTION -->
+  <div id="howItWorksSection" class="hidden mt-4 p-4 bg-gray-50 border-l-4 border-amber-500 rounded-xl text-sm leading-relaxed text-gray-700">
+    <h4 class="font-bold text-amber-600 mb-2 text-base">Akkamitti Hojjeta?</h4>
+    <ul class="list-disc pl-4 space-y-2">
+      <li><strong class="text-gray-900">Afeerraa:</strong> Namni ati afeerte yoo galmaa'e, afeerraa tokkoof <span class="text-green-600 font-extrabold">0.3 Birr</span> argattu.</li>
+      <li><strong class="text-gray-900">Yeroo Jalqabaa:</strong> Maallaqni kuufame <span class="text-green-600 font-extrabold">100 Birr</span> yommuu gahu baasuu dandeessu.</li>
+      <li><strong class="text-gray-900">Daangaa Malee:</strong> Sana booda daangaa tokko malee afeertanii baafachuu dandeessu.</li>
+      <li><strong class="text-gray-900">Gadaantee 2ffaa:</strong> Namni ati afeerte sun yommuu maallaqa herrega isaa irraa baafatu, ati <span class="text-green-600 font-extrabold">5% bonus</span> dabalataa argatta!</li>
+    </ul>
+  </div>
 
-  for (let post of posts) {
-    const postService = post.getAttribute('data-proof');
-    if (serviceType === 'all' || postService === serviceType) {
-      post.style.display = "block";
-    } else {
-      post.style.display = "none";
-    }
-  }
-}
-</script>
+  <!-- USER WALLET -->
+  <div id="affiliateWalletSection" class="hidden mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+    <div class="grid grid-cols-2 gap-2 text-center mb-4">
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Namni Afeerrame</span>
+        <span id="invitedCount" class="text-xl font-black text-amber-600">12</span>
+      </div>
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Maallaqa Kuufame</span>
+        <span id="walletBalance" class="text-xl font-black text-green-400">103.60 ETB</span>
+      </div>
+    </div>
+    <div id="withdrawForm" class="space-y-2">
+      <label class="block text-xs text-gray-700 font-bold">Toftaa Kaffaltii / Lakk. Herrega Baankii:</label>
+      <input type="text" id="bankDetails" placeholder="Fakkeenya: CBE - 1000xxxxxxxxx" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-gray-800 text-sm focus:border-amber-500 outline-none">
+      <button onclick="requestWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-2.5 rounded-xl text-sm transition-all shadow-md">Confirm & Submit Request</button>
+      <p id="statusMessage" class="text-center text-sm text-amber-600 hidden mt-1 font-bold">⏳ Status: Pending (Admin is reviewing...)</p>
+    </div>
+  </div>
+
+  <!-- BACK BUTTON -->
+  <div class="mt-6 pt-4 border-t border-gray-100">
+    <button onclick="showSection('section-select-service')" class="flex items-center justify-center gap-2 text-sm font-bold text-gray-500 hover:text-amber-600 transition-all mx-auto">
+      <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+    </button>
+  </div>
+</section>
+
+
+<!-- PAGE 5: TESTIMONIALS SECTION (DHOKATAA TA'EE JALQABA) -->
+<section id="section-testimonials" class="hidden p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
+  <div class="flex items-center gap-3 mb-4 border-b border-gray-100 pb-3">
+    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
+      <i class="fa-solid fa-file-shield text-2xl"></i>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold text-gray-900">Ragaalee fi Mirkaneeffannoo</h3>
+      <p class="text-xs text-gray-500">Testimonials & Client Proofs</p>
+    </div>
+  </div>
+
+  <div class="flex gap-2 overflow-x-auto pb-4 scrollbar-none border-b border-gray-100 mb-4">
+    <button onclick="filterProofs('all')" id="btn-all" class="bg-amber-500 text-black text-xs font-extrabold px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-sm">Hunda (All)</button>
+    <button onclick="filterProofs('tutoring')" id="btn-tutoring" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Tutoring</button>
+    <button onclick="filterProofs('training')" id="btn-training" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Training</button>
+    <button onclick="filterProofs('advertising')" id="btn-advertising" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Advertising</button>
+    <button onclick="filterProofs('affiliate')" id="btn-affiliate" class="bg-gray-50 text-gray-600 text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap hover:bg-gray-100 transition-all">Affiliate</button>
+  </div>
+
+  <div id="proofsContainer" class="space-y-4">
+    <!-- RAGAA 1FFAA -->
+    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-sm space-y-3 transition-all" data-proof="tutoring">
+      <div class="flex justify-between items-center">
+        <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase">Tutoring / Barnoota</span>
+        <span class="text-gray-400 text-[11px]">Verified</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed text-xs">"Barataan keenya leenjii kanaan dura fudhate qabxii gaarii fiduu isaa ragaan kunoo ti."</p>
+    </div>
+    <!-- RAGAA 2FFAA -->
+    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-sm space-y-3 transition-all" data-proof="training">
+      <div class="flex justify-between items-center">
+        <span class="bg-amber-50 text-amber-700 font-extrabold px-2.5 py-1 rounded-lg text-[10px] uppercase">Training / Leenjii</span>
+        <span class="text-gray-400 text-[11px]">Verified</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed text-xs">"Mirkaneeffannoo leenjii fi Viidiyoo gabaabaa waa'ee dandeettii daldalaa irratti kenname."</p>
+    </div>
+  </div>
+
+  <!-- BACK BUTTON -->
+  <div class="mt-6 pt-4 border-t border-gray-100">
+    <button onclick="showSection('section-select-service')" class="flex items-center justify-center gap-2 text-sm font-bold text-gray-500 hover:text-amber-600 transition-all mx-auto">
+      <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+    </button>
+  </div>
+</section>
 
 <script>
 // BILBILA NAMAA AKKA HIN BAASNE TO'ACHUU (BACK BUTTON CONTROL)
