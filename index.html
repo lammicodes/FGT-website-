@@ -414,7 +414,7 @@
     <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
       <i class="fa-solid fa-users-rectangle text-2xl"></i>
     </div>
-    <h3 class="text-lg font-bold text-gray-900">4. Affiliate Program / Afeerraa Daldalaa</h3>
+    <h3 class="text-lg font-bold text-gray-900">Affiliate Program / Afeerraa Daldalaa</h3>
   </div>
   
   <p class="text-gray-600 text-sm mb-4">
@@ -1123,6 +1123,44 @@ function requestWithdrawal() {
     </section> 
 
   </main> 
+
+      // Koodii weebsaayitiikee isa dhalataa hojjechiisa
+    originalShowSection(sectionId);
+  }
+};
+
+<!-- HOJII JAVASCRIPT ISAA -->
+<script>
+function toggleHowItWorks() {
+  const section = document.getElementById('howItWorksSection');
+  section.classList.toggle('hidden');
+}
+
+function toggleAffiliateInfo() {
+  const section = document.getElementById('affiliateWalletSection');
+  section.classList.toggle('hidden');
+}
+
+function requestWithdrawal() {
+  const bankInput = document.getElementById('bankDetails').value;
+  const statusMsg = document.getElementById('statusMessage');
+  
+  if (!bankInput.trim()) {
+    alert("Maaloo dursa lakk. herrega baankii keessan galchaa!");
+    return;
+  }
+  
+  // Maallaqa jiru dursa qorachuu (Fakkeenyaaf 100 gahuu isaa)
+  const balance = parseFloat(document.getElementById('walletBalance').innerText);
+  if (balance < 100) {
+    alert("Ulaagaan hin guunne! Maallaqni kuufame dursa 100 Birr gahuu qaba.");
+    return;
+  }
+
+  statusMsg.classList.remove('hidden');
+  alert("Ajajni keessan ergameera! Admin yoo mirkaneessu kaffaltiin keessan ni raawwatama.");
+}
+</script>
 
   <!-- FOOTER SECTION --> 
   <footer class="bg-amber-950 text-white pt-8 pb-6 border-t-4 border-amber-600 mt-8"> 
