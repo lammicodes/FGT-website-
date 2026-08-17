@@ -866,7 +866,111 @@ function requestWithdrawal() {
  
     </div> 
   </footer> 
- 
+
+<!-- ==================== DIGITAL E-COMMERCE FLOW ==================== -->
+<section id="flow-ecommerce" class="hidden p-4 max-w-xl mx-auto bg-gray-50 rounded-2xl shadow-lg border border-gray-150 my-6">
+    <!-- Button Gara Duubatti Deebi'u -->
+    <button onclick="showSection('section-select-service')" class="mb-4 p-2 bg-amber-900 text-white rounded-full hover:bg-amber-800 transition">
+        <i class="fa-solid fa-arrow-left px-1"></i>
+    </button>
+    
+    <div class="text-center mb-6">
+        <h3 class="text-xl font-bold text-amber-900">Digital E-Commerce & Market Place</h3>
+        <p class="text-xs text-gray-600 mt-1">Meeshaa keessan galchuun gabaa irratti beeksisaa</p>
+    </div>
+
+    <!-- TARTIBA 1: UPLOAD TO SELL (Suuraa/Viidiyoo & Ibsa) -->
+    <div id="ec-step-1" class="space-y-4">
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <h4 class="font-bold text-amber-900 text-sm mb-3"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> 1. Upload to SELL / Meeshaa Fe'aa</h4>
+            
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Suuraa ykn Viidiyoo (Giddu-galeessaan hamma 4 qofa):</label>
+            <input type="file" multiple accept="image/*,video/*" class="w-full text-xs text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-50 file:text-amber-900 hover:file:bg-amber-100 border rounded-md p-1" id="ec_files" max="4">
+            
+            <div class="mt-3 space-y-2">
+                <label class="block text-xs font-semibold text-gray-700">Ibsa Guutuu (Full Description):</label>
+                <textarea class="w-full p-2 text-xs border rounded-md focus:ring-1 focus:ring-amber-900 outline-none" rows="3" placeholder="Waa'ee meeshaa keessanii bal'inaan ibsa..."></textarea>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700">Teessoo (Address):</label>
+                        <input type="text" class="w-full p-2 text-xs border rounded-md focus:ring-1 focus:ring-amber-900 outline-none" placeholder="Fakkeenya: Finfinnee">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700">Lakk Bilbilaa (Phone):</label>
+                        <input type="tel" class="w-full p-2 text-xs border rounded-md focus:ring-1 focus:ring-amber-900 outline-none" placeholder="09...">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700">Gatii Dhugaa (Real Price in ETB):</label>
+                    <input type="number" class="w-full p-2 text-xs border rounded-md focus:ring-1 focus:ring-amber-900 outline-none" placeholder="Gatii Meeshaa">
+                </div>
+            </div>
+        </div>
+        <button onclick="document.getElementById('ec-step-1').classList.add('hidden'); document.getElementById('ec-step-2').classList.remove('hidden');" class="w-full py-2.5 bg-amber-900 text-white text-sm font-bold rounded-lg hover:bg-amber-800 transition text-center block">
+            Itti Fufi / Next <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+    </div>
+
+    <!-- TARTIBA 2: PLANS (Filannoo Tursiisaa) -->
+    <div id="ec-step-2" class="hidden space-y-4">
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <h4 class="font-bold text-amber-900 text-sm mb-3"><i class="fa-solid fa-layer-group mr-1"></i> 2. Pay Now (Your Plan) / Karoora Filadhaa</h4>
+            <p class="text-xs text-gray-500 mb-3">Erga guyyaan waliigaltem xumuramee booda ofumaan sirnichaa keessaa haqama.</p>
+            
+            <div class="space-y-2">
+                <label class="flex items-center p-2.5 border rounded-lg cursor-pointer hover:bg-amber-50">
+                    <input type="radio" name="ec_plan" value="100" class="text-amber-900 focus:ring-amber-900" checked>
+                    <span class="ml-3 text-xs font-bold text-gray-800">100 Birr — Karoora Ji'a 3 (3 Months)</span>
+                </label>
+                <label class="flex items-center p-2.5 border rounded-lg cursor-pointer hover:bg-amber-50">
+                    <input type="radio" name="ec_plan" value="150" class="text-amber-900 focus:ring-amber-900">
+                    <span class="ml-3 text-xs font-bold text-gray-800">150 Birr — Karoora Ji'a 6 (6 Months)</span>
+                </label>
+                <label class="flex items-center p-2.5 border rounded-lg cursor-pointer hover:bg-amber-50">
+                    <input type="radio" name="ec_plan" value="200" class="text-amber-900 focus:ring-amber-900">
+                    <span class="ml-3 text-xs font-bold text-gray-800">200 Birr — Karoora Waggaa 1 (1 Year)</span>
+                </label>
+            </div>
+        </div>
+        <div class="flex space-x-2">
+            <button onclick="document.getElementById('ec-step-2').classList.add('hidden'); document.getElementById('ec-step-1').classList.remove('hidden');" class="w-1/3 py-2 bg-gray-200 text-gray-700 text-xs font-bold rounded-lg">Gara Duubaa</button>
+            <button onclick="document.getElementById('ec-step-2').classList.add('hidden'); document.getElementById('ec-step-3').classList.remove('hidden');" class="w-2/3 py-2 bg-amber-900 text-white text-xs font-bold rounded-lg">Kaffaltii / Next</button>
+        </div>
+    </div>
+
+    <!-- TARTIBA 3: PERMANENT METHOD & CONFIRM (Lakk Baankii & Nagahee) -->
+    <div id="ec-step-3" class="hidden space-y-4">
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <h4 class="font-bold text-amber-900 text-sm mb-2"><i class="fa-solid fa-credit-card mr-1"></i> 3. Permanent Method / Karaa Kaffaltii</h4>
+            <p class="text-xs text-gray-600 mb-3">Lakk Baankii armaan gadii filachuun kaffaltii raawwadhaatii nagahee (receipt) asitti fe'aa.</p>
+            
+            <div class="p-2.5 bg-amber-50 rounded-lg text-xs space-y-1 mb-4 text-gray-700 font-semibold border border-amber-100">
+                <p>🏦 Baankii Daldala Itiyoophiyaa (CBE): <span class="text-amber-900 font-bold">1000XXXXXXXXX</span></p>
+                <p>📱 Telebirr Wallet: <span class="text-amber-900 font-bold">09XXXXXXXX</span></p>
+            </div>
+            
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Confirm Payment / Nagahee Fe'aa:</label>
+            <input type="file" accept="image/*" class="w-full text-xs text-gray-600 file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-900 file:text-white hover:file:bg-amber-800 border rounded-md p-1" id="ec_receipt">
+        </div>
+        <div class="flex space-x-2">
+            <button onclick="document.getElementById('ec-step-3').classList.add('hidden'); document.getElementById('ec-step-2').classList.remove('hidden');" class="w-1/3 py-2 bg-gray-200 text-gray-700 text-xs font-bold rounded-lg">Gara Duubaa</button>
+            <button onclick="document.getElementById('ec-step-3').classList.add('hidden'); document.getElementById('ec-step-4').classList.remove('hidden');" class="w-2/3 py-2 bg-green-700 text-white text-xs font-bold rounded-lg">Mirkaneessi / Submit</button>
+        </div>
+    </div>
+
+    <!-- TARTIBA 4: WAIT FOR APPROVAL / STATUS -->
+    <div id="ec-step-4" class="hidden text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 space-y-3">
+        <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto text-2xl animate-pulse">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 text-base">Wait for Approval / Eeggamaa Jira</h4>
+        <p class="text-xs text-gray-600 max-w-sm mx-auto">Nagaheen keessan ogeessaan erga mirkanaa'ee booda meeshaan keessan webyaa irratti mul'ata (**Published**). Yoo nagaheen sun dogoggora ta'e immoo kaffaltiin keessan fudhatama hin argatu (**Rejected**).</p>
+        <button onclick="showSection('section-services-list'); location.reload();" class="mt-4 px-4 py-1.5 bg-amber-900 text-white text-xs font-semibold rounded-md">Gara Fuula Duratti Deebi'i</button>
+    </div>
+</section>
+  
   <!-- JAVASCRIPT LOGIC --> 
   <script> 
     let selectedDelivery = ''; 
