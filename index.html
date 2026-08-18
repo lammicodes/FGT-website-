@@ -505,6 +505,38 @@
     </div>
   </div>
 </div>
+<div id="section-admin" class="hidden p-6 bg-gray-50 min-h-screen">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-amber-950">FGT Admin Board</h1>
+    <button onclick="hideAll(); showSection('section-home');" class="bg-gray-200 px-4 py-2 rounded-lg text-sm font-semibold">Bahi</button>
+  </div>
+
+  <!-- Table To'annoo -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-amber-950 text-white text-sm">
+        <tr>
+          <th class="p-4">Maqaa</th>
+          <th class="p-4">Kaffaltii</th>
+          <th class="p-4">Nagahee</th>
+          <th class="p-4">Haala Isaa</th>
+        </tr>
+      </thead>
+      <tbody id="admin-receipt-list" class="text-sm">
+        <!-- Koodiin JavaScript nagahee as keessatti dabalataa deema -->
+        <tr class="border-b border-gray-150">
+          <td class="p-4 font-medium">Chala Kebede</td>
+          <td class="p-4">ETB 1,500</td>
+          <td class="p-4"><a href="#" class="text-blue-600 underline">Nagahee Ilaali</a></td>
+          <td class="p-4">
+            <button class="bg-green-600 text-white px-3 py-1 rounded text-xs">Mirkaneessi</button>
+            <button class="bg-red-600 text-white px-3 py-1 rounded text-xs ml-2">Haqi</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <!-- HOJII JAVASCRIPT ISAA -->
 <script>
