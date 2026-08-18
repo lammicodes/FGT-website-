@@ -549,7 +549,13 @@ function toggleAffiliateInfo() {
   const section = document.getElementById('affiliateWalletSection');
   section.classList.toggle('hidden');
 }
-
+function openAdminBoard() {
+    hideAll();
+    const adminSection = document.getElementById('section-admin');
+    if (adminSection) {
+        adminSection.classList.remove('hidden');
+    }
+}
 function requestWithdrawal() {
   const bankInput = document.getElementById('bankDetails').value;
   const statusMsg = document.getElementById('statusMessage');
