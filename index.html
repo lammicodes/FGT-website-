@@ -443,7 +443,7 @@
     <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
       <!-- KAN JALQABAA SANAA KAASII KANA GALCHI -->
 <div class="mb-4">
-  <button onclick="window.location.reload();" class="flex items-center gap-2 text-gray-700 hover:text-black font-semibold bg-gray-100 px-3 py-2 rounded-lg transition border border-gray-200">
+  <button onclick="hideAll(); showSection('section-home');" class="flex items-center gap-2 text-gray-700 hover:text-black font-semibold bg-gray-100 px-3 py-2 rounded-lg transition border border-gray-200">
   <i class="fa-solid fa-arrow-left"></i> Gara Duubatti
 </button>
 </div>
@@ -1219,6 +1219,22 @@ function requestWithdrawal() {
         document.getElementById('action-telegram-group').classList.remove('hidden'); 
       } 
     } 
+    // --- ALLA TOORA 1221 JALATTI KANA DABALADHU ---
+
+// 1. Jalqaba irratti state brauziirii tokko seeraan kuusuuf
+if (window.history && window.history.pushState) {
+    history.pushState('forward', null, null);
+    
+    // 2. Yommuu namni sun moobaayilaan 'Back' tuqu akka hin baane to'achuuf
+    window.addEventListener('popstate', function () {
+        // Fuulota weebsiyitichaa dhoksii gara fuula guddatti deebisi
+        hideAll(); 
+        showSection('section-home'); // ID fuula kee isa tajaajila qabuuti
+        
+        // Akka moobaayilli lammata seenaa keessaa hin baaneef deebisii kuusi
+        history.pushState('forward', null, null);
+    });
+}
   </script> 
 </body> 
 </html>
