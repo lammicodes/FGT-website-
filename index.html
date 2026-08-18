@@ -439,41 +439,43 @@
       </button> 
     </section> 
 
-    <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM (STYLE WALSIMMATE) -->
-    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
-      <!-- KAN JALQABAA SANAA KAASII KANA GALCHI -->
-<div class="mb-4">
-  <button onclick="hideAll(); showSection('section-home');" class="flex items-center gap-2 text-gray-700 hover:text-black font-semibold bg-gray-100 px-3 py-2 rounded-lg transition border border-gray-200">
-  <i class="fa-solid fa-arrow-left"></i> Gara Duubatti
-</button>
-</div>
-      <div class="flex items-center gap-3 mb-4">
-    <!-- Icon bifa keelloo ifaa akkuma warra gubbaa -->
-    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
-      <i class="fa-solid fa-users-rectangle text-2xl"></i>
+    <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM -->
+<div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col justify-between min-h-[350px]">
+  <div>
+    <div class="mb-4">
+      <button onclick="hideAll(); showSection('section-home');" class="flex items-center justify-center w-10 h-10 bg-amber-950 text-white rounded-full shadow-md hover:bg-amber-900 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
     </div>
-    <h3 class="text-lg font-bold text-gray-900">Affiliate Program / Afeerraa Daldalaa</h3>
-  </div>
-  <!-- Barruun kun guraacha waan ta'eef qulqulluun dubbifama -->
-  <p class="text-gray-600 text-sm mb-4">
-    Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
-  </p>
-<!-- KANA GADI JALATTI DABALI -->
-<div class="mt-2 text-right">
-  <button onclick="openAdminBoard();" class="text-[10px] bg-gray-200 text-gray-600 px-2 py-1 rounded hover:bg-gray-300 transition">
-    ⚙️ Admin Board Yaali
-  </button>
-</div>
-  <!-- BUTTONS -->
-  <div class="flex flex-col gap-3">
-    <button onclick="toggleAffiliateInfo()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-extrabold py-2.5 px-4 rounded-xl transition-all text-center tracking-wide shadow-sm">
-      EARN MONEY
-    </button>
     
-    <button onclick="toggleHowItWorks()" class="w-full bg-transparent border-2 border-amber-500 text-amber-600 font-bold hover:bg-amber-500/10 py-2 px-4 rounded-xl transition-all text-center text-sm">
-      How it works and benefits / Akkamitti hojjeta?
-    </button>
+    <div class="flex items-center gap-3 mb-4">
+      <div class="p-3 bg-amber-50 rounded-xl">
+        <i class="fa-solid fa-users-rectangle text-amber-950 text-xl"></i>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800">EARN_MONEY</h3>
+    </div>
+    
+    <p class="text-gray-600 text-sm mb-4">
+      Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+    </p>
   </div>
+
+  <div>
+    <!-- BUTTON ADMIN YAALUFI -->
+    <div class="mb-4 text-right">
+      <button onclick="openAdminBoard();" class="text-xs bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-300 transition font-medium">
+        ⚙️ Admin Board Yaali
+      </button>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex flex-col gap-3">
+      <button onclick="toggleAffiliateInfo();" class="w-full bg-amber-950 text-white py-2.5 rounded-xl font-semibold hover:bg-amber-900 transition">
+        EARN_MONEY
+      </button>
+    </div>
+  </div>
+</div>
 
   <!-- KUTAA IBSAA (HOW IT WORKS DESCRIPTION) -->
   <div id="howItWorksSection" class="hidden mt-4 p-4 bg-gray-50 border-l-4 border-amber-500 rounded-xl text-sm leading-relaxed text-gray-700">
