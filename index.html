@@ -540,8 +540,8 @@
     </div>
   </div>
 </div>
-
-<div id="section-admin" class="hidden p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200 mt-6">
+   
+<div id="section-admin" class="hidden p-6 max-w-md mx-auto my-4 bg-white rounded-2xl shadow-sm border border-gray-200">
   <!-- BUTTON GARA DUUBATTI AMMA ITTI DABALAME -->
   <div class="mb-4">
     <button onclick="hideAll(); showSection('section-home');" class="flex items-center gap-2 text-amber-950 font-semibold hover:underline text-sm">
@@ -597,7 +597,8 @@ function openAdminBoard() {
         adminSection.classList.remove('hidden');
     }
 }
- function checkAdminAccess() {
+
+function checkAdminAccess() {
     // 1. Sidebar menu akka ofiin dafee cufamu gochuuf
     const sidebar = document.getElementById('sidebar');
     if (sidebar) {
