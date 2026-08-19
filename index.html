@@ -540,32 +540,38 @@
     </div>
   </div>
 </div>
-<div id="section-admin" class="hidden p-6 bg-gray-50 min-h-screen">
-  <div class="flex justify-between items-center mb-6">
-    <h1 class="text-2xl font-bold text-amber-950">FGT Admin Board</h1>
-    <button onclick="hideAll(); showSection('section-home');" class="bg-gray-200 px-4 py-2 rounded-lg text-sm font-semibold">Bahi</button>
+
+<div id="section-admin" class="hidden p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200 mt-6">
+  <!-- BUTTON GARA DUUBATTI AMMA ITTI DABALAME -->
+  <div class="mb-4">
+    <button onclick="hideAll(); showSection('section-home');" class="flex items-center gap-2 text-amber-950 font-semibold hover:underline text-sm">
+      <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
+    </button>
   </div>
 
-  <!-- Table To'annoo -->
-  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+  <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-3">
+    <h1 class="text-xl font-bold text-amber-950">FGT Admin Board (To'annoo)</h1>
+    <button onclick="hideAll(); showSection('section-home');" class="bg-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-300 transition">Bahi</button>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-150 overflow-hidden">
     <table class="w-full text-left border-collapse">
-      <thead class="bg-amber-950 text-white text-sm">
+      <thead class="bg-amber-950 text-white text-xs">
         <tr>
-          <th class="p-4">Maqaa</th>
-          <th class="p-4">Kaffaltii</th>
-          <th class="p-4">Nagahee</th>
-          <th class="p-4">Haala Isaa</th>
+          <th class="p-3">Maqaa Fayyadamaa</th>
+          <th class="p-3">Kaffaltii (ETB)</th>
+          <th class="p-3">Nagahee</th>
+          <th class="p-3">Gochawwan Admin</th>
         </tr>
       </thead>
-      <tbody id="admin-receipt-list" class="text-sm">
-        <!-- Koodiin JavaScript nagahee as keessatti dabalataa deema -->
-        <tr class="border-b border-gray-150">
-          <td class="p-4 font-medium">Chala Kebede</td>
-          <td class="p-4">ETB 1,500</td>
-          <td class="p-4"><a href="#" class="text-blue-600 underline">Nagahee Ilaali</a></td>
-          <td class="p-4">
-            <button class="bg-green-600 text-white px-3 py-1 rounded text-xs">Mirkaneessi</button>
-            <button class="bg-red-600 text-white px-3 py-1 rounded text-xs ml-2">Haqi</button>
+      <tbody id="admin-receipt-list" class="text-xs text-gray-700">
+        <tr class="border-b border-gray-100">
+          <td class="p-3 font-medium">Chala Kebede</td>
+          <td class="p-3">ETB 1,500</td>
+          <td class="p-3"><a href="#" class="text-blue-600 underline font-semibold">Nagahee Ilaali</a></td>
+          <td class="p-3">
+            <button onclick="alert('Mirkanaa\'eera!')" class="bg-green-600 text-white px-2 py-1 rounded hover:bg-green-700 transition text-xs">Mirkaneessi</button>
+            <button onclick="alert('Haqameera!')" class="bg-red-600 text-white px-2 py-1 rounded ml-1 hover:bg-red-700 transition text-xs">Haqi</button>
           </td>
         </tr>
       </tbody>
@@ -592,6 +598,13 @@ function openAdminBoard() {
     }
 }
  function checkAdminAccess() {
+    // 1. Sidebar menu akka ofiin dafee cufamu gochuuf
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+        sidebar.classList.add('-translate-x-full');
+    }
+    
+    // 2. Koodii iccitii gaafachuu
     let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
     if (koodii === "1234") {
         openAdminBoard();
