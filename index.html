@@ -1129,7 +1129,23 @@ function requestWithdrawal() {
       toggleSidebar(); 
       showSection(sectionId); 
     } 
- 
+    
+ function checkAdminAccess() {
+    let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
+    if (koodii === "1234") {
+        // Sidebar ofiin akka cufuuf
+        if (typeof toggleSidebar === "function") {
+            toggleSidebar();
+        }
+        // Seera weebsayitii keetiin fuula admin saaquf
+        if (typeof navClick === "function") {
+            navClick('section-admin');
+        }
+    } else if (koodii !== null) {
+        alert("Koodiin ati galchite sirrii miti!");
+    }
+}
+
     function toggleSearch() { 
       const searchBar = document.getElementById('search-bar'); 
       searchBar.classList.toggle('hidden'); 
