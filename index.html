@@ -580,31 +580,24 @@ function toggleAffiliateInfo() {
   section.classList.toggle('hidden');
 }
 function openAdminBoard() {
-    hideAll();
-    const adminSection = document.getElementById('section-admin');
-    if (adminSection) {
-        adminSection.classList.remove('hidden');
-    }
-}
- 
 function checkAdminAccess() {
     let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
     if (koodii === "1234") {
-        // Sidebar menu akka ofiin cufuuf
-        if (typeof toggleSidebar === "function") {
-            toggleSidebar();
+        // 1. Sidebar menu akka ofiin cufamu gochuuf
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+            sidebar.classList.add('-translate-x-full');
         }
-        // Seera weebsayitii keetiin fuula admin saaquf
-        navClick('section-admin');
-    } else if (koodii !== null) {
-        alert("Koodiin ati galchite sirrii miti! Sitti hin galamne.");
-    }
-}
- 
-    // 2. Koodii iccitii gaafachuu
-    let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
-    if (koodii === "1234") {
-        openAdminBoard();
+        
+        // 2. Seera weebsayitii keetiin fuula admin saaquf
+        if (typeof navClick === "function") {
+            navClick('section-admin');
+        } else {
+            // Yoo navClick sitti hojjechuu baate bifa kanaan bansi
+            hideAll();
+            const adminSection = document.getElementById('section-admin');
+            if (adminSection) adminSection.classList.remove('hidden');
+        }
     } else if (koodii !== null) {
         alert("Koodiin ati galchite sirrii miti! Sitti hin galamne.");
     }
