@@ -591,6 +591,15 @@ function openAdminBoard() {
         adminSection.classList.remove('hidden');
     }
 }
+ function checkAdminAccess() {
+    let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
+    if (koodii === "1234") {
+        openAdminBoard();
+    } else if (koodii !== null) {
+        alert("Koodiin ati galchite sirrii miti! Sitti hin galamne.");
+    }
+}
+
 function requestWithdrawal() {
   const bankInput = document.getElementById('bankDetails').value;
   const statusMsg = document.getElementById('statusMessage');
