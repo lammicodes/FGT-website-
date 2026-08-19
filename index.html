@@ -514,35 +514,41 @@
       <li><strong class="text-gray-900">Daangaa Malee:</strong> Sana booda daangaa tokko malee afeertanii baafachuu dandeessu.</li>
       <li><strong class="text-gray-900">Gadaantee 2ffaa:</strong> Namni ati afeerte sun yommuu maallaqa herrega isaa irraa baafatu, ati <span class="text-green-600 font-extrabold">5% bonus</span> dabalataa argatta!</li>
     </ul>
+<!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM -->
+<div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col justify-between min-h-[350px]">
+  <div>
+    <div class="mb-4">
+      <button onclick="hideAll(); showSection('section-home');" class="flex items-center justify-center w-10 h-10 bg-amber-950 text-white rounded-full shadow-md hover:bg-amber-900 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    
+    <div class="flex items-center gap-3 mb-4">
+      <div class="p-3 bg-amber-50 rounded-xl">
+        <i class="fa-solid fa-users-rectangle text-amber-950 text-xl"></i>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800">EARN_MONEY</h3>
+    </div>
+    
+    <p class="text-gray-600 text-sm mb-4">
+      Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+    </p>
   </div>
 
-  <!-- KUTAA ACCOUNT USER (USER WALLET) -->
-  <div id="affiliateWalletSection" class="hidden mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl">
-    <div class="grid grid-cols-2 gap-2 text-center mb-4">
-      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
-        <span class="block text-xs text-gray-500 font-bold">Namni Afeerrame</span>
-        <span id="invitedCount" class="text-xl font-black text-amber-600">12</span>
-      </div>
-      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
-        <span class="block text-xs text-gray-500 font-bold">Maallaqa Kuufame</span>
-        <span id="walletBalance" class="text-xl font-black text-green-600">103.60 ETB</span>
-      </div>
-    </div>
-
-    <!-- UNKA KAFFALTII -->
-    <div id="withdrawForm" class="space-y-2">
-      <label class="block text-xs text-gray-700 font-bold">Toftaa Kaffaltii / Lakk. Herrega Baankii:</label>
-      <input type="text" id="bankDetails" placeholder="Fakkeenya: CBE - 1000xxxxxxxxx" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-gray-800 text-sm focus:border-amber-500 outline-none">
-      <button onclick="requestWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-2.5 rounded-xl text-sm transition-all shadow-md">
-        Confirm & Submit Request
+  <div>
+    <!-- BUTTONS -->
+    <div class="flex flex-col gap-3">
+      <button onclick="toggleAffiliateInfo();" class="w-full bg-amber-950 text-white py-2.5 rounded-xl font-semibold hover:bg-amber-900 transition">
+        EARN_MONEY
       </button>
-      <p id="statusMessage" class="text-center text-sm text-amber-600 hidden mt-1 font-bold">⏳ Status: Pending (Admin is reviewing...)</p>
     </div>
   </div>
 </div>
-   
+
+<!-- KUTAA ADMIN BOARD (AKKA KAARDII ADIITTi GUBBAATTI NAGAAN AKKA BAHUUF) -->
 <div id="section-admin" class="hidden p-6 max-w-md mx-auto my-4 bg-white rounded-2xl shadow-sm border border-gray-200">
-  <!-- BUTTON GARA DUUBATTI AMMA ITTI DABALAME -->
+  
+  <!-- BUTTON GARA DUUBATTI -->
   <div class="mb-4">
     <button onclick="hideAll(); showSection('section-home');" class="flex items-center gap-2 text-amber-950 font-semibold hover:underline text-sm">
       <i class="fa-solid fa-arrow-left"></i> Back / Gara Duubatti
@@ -550,7 +556,7 @@
   </div>
 
   <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-3">
-    <h1 class="text-xl font-bold text-amber-950">FGT Admin Board (To'annoo)</h1>
+    <h1 class="text-xl font-bold text-amber-950">FGT Admin Board</h1>
     <button onclick="hideAll(); showSection('section-home');" class="bg-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-300 transition">Bahi</button>
   </div>
 
@@ -558,20 +564,19 @@
     <table class="w-full text-left border-collapse">
       <thead class="bg-amber-950 text-white text-xs">
         <tr>
-          <th class="p-3">Maqaa Fayyadamaa</th>
-          <th class="p-3">Kaffaltii (ETB)</th>
+          <th class="p-3">Maqaa</th>
+          <th class="p-3">Kaffaltii</th>
           <th class="p-3">Nagahee</th>
-          <th class="p-3">Gochawwan Admin</th>
+          <th class="p-3">Gochawwan</th>
         </tr>
       </thead>
       <tbody id="admin-receipt-list" class="text-xs text-gray-700">
         <tr class="border-b border-gray-100">
-          <td class="p-3 font-medium">Chala Kebede</td>
-          <td class="p-3">ETB 1,500</td>
-          <td class="p-3"><a href="#" class="text-blue-600 underline font-semibold">Nagahee Ilaali</a></td>
+          <td class="p-3 font-medium">Chala K.</td>
+          <td class="p-3">1,500 ETB</td>
+          <td class="p-3"><a href="#" class="text-blue-600 underline font-semibold">Ilaali</a></td>
           <td class="p-3">
-            <button onclick="alert('Mirkanaa\'eera!')" class="bg-green-600 text-white px-2 py-1 rounded hover:bg-green-700 transition text-xs">Mirkaneessi</button>
-            <button onclick="alert('Haqameera!')" class="bg-red-600 text-white px-2 py-1 rounded ml-1 hover:bg-red-700 transition text-xs">Haqi</button>
+            <button onclick="alert('Mirkanaa\'eera!')" class="bg-green-600 text-white px-2 py-1 rounded text-[10px]">Mirkaneessi</button>
           </td>
         </tr>
       </tbody>
