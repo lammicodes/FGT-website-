@@ -590,30 +590,20 @@ function toggleAffiliateInfo() {
   const section = document.getElementById('affiliateWalletSection');
   section.classList.toggle('hidden');
 }
-function openAdminBoard() {
-    hideAll();
-    const adminSection = document.getElementById('section-admin');
-    if (adminSection) {
-        adminSection.classList.remove('hidden');
-    }
-}
-
 function checkAdminAccess() {
-    // 1. Sidebar menu akka ofiin dafee cufamu gochuuf
-    const sidebar = document.getElementById('sidebar');
-    if (sidebar) {
-        sidebar.classList.add('-translate-x-full');
-    }
-    
-    // 2. Koodii iccitii gaafachuu
     let koodii = prompt("Maaloo koodii iccitii Admin galchi:");
     if (koodii === "1234") {
-        openAdminBoard();
+        if (typeof toggleSidebar === "function") {
+            toggleSidebar();
+        }
+        if (typeof navClick === "function") {
+            navClick('section-admin');
+        }
     } else if (koodii !== null) {
         alert("Koodiin ati galchite sirrii miti! Sitti hin galamne.");
     }
 }
-
+ 
 function requestWithdrawal() {
   const bankInput = document.getElementById('bankDetails').value;
   const statusMsg = document.getElementById('statusMessage');
@@ -634,6 +624,32 @@ function requestWithdrawal() {
   alert("Ajajni keessan ergameera! Admin yoo mirkaneessu kaffaltiin keessan ni raawwatama.");
 }
 </script>
+   <!-- KUTAA ADMIN BOARD (SEERA NAVCLICK HORDOFUUFi) -->
+<section id="section-admin" class="hidden p-6 max-w-md mx-auto my-4 bg-white rounded-2xl shadow-sm border border-gray-200">
+  <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-3">
+    <h1 class="text-xl font-bold text-amber-950">FGT Admin Board</h1>
+    <button onclick="if(typeof navClick === 'function') navClick('landing-page');" class="bg-gray-200 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-300 transition">Bahi</button>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-150 overflow-hidden">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-amber-950 text-white text-xs">
+        <tr>
+          <th class="p-3">Maqaa</th>
+          <th class="p-3">Kaffaltii</th>
+          <th class="p-3">Nagahee</th>
+        </tr>
+      </thead>
+      <tbody id="admin-receipt-list" class="text-xs text-gray-700">
+        <tr class="border-b border-gray-100">
+          <td class="p-3 font-medium">Chala K.</td>
+          <td class="p-3">1,500 ETB</td>
+          <td class="p-3"><a href="#" class="text-blue-600 underline font-semibold">Ilaali</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
     <!-- PAGE 3: SELECT SERVICE --> 
     <section id="section-select-service" class="hidden bg-white p-6 rounded-2xl shadow-md border border-amber-100 space-y-4"> 
