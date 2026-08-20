@@ -1238,59 +1238,7 @@ function requestWithdrawal() {
     } else if (koodii !== null) {
         alert("Koodiin ati galchite sirrii miti!");
     }
-}
-    
-function processWithdrawRequest() {
-    const container = document.getElementById('withdraw-form-container');
-    const statusBox = document.getElementById('withdraw-status-box');
-    const fields = document.getElementById('withdraw-fields');
-    
-    // Maallaqa kuufame herreguuf (103.60)
-    const balance = 103.60; 
-    
-    container.classList.remove('hidden');
-    
-    if (balance < 100) {
-        // IF NOT (X) - Yoo ulaagaan (fkn 100 ETB gadi ta'e) hin guunne
-        statusBox.className = "p-3 rounded-xl text-xs font-semibold flex items-center gap-2 bg-red-50 text-red-700 border border-red-150";
-        statusBox.innerHTML = `<i class="fa-solid fa-circle-xmark text-sm"></i> Ulaagaan hin guunne! Maallaqni gadi xiqqaan ba’u 100 ETB dha.`;
-        fields.classList.add('hidden');
-    } else {
-        // IF YES (✔️) - Yoo ulaagaan guute unka gadi dhiisa
-        statusBox.className = "p-3 rounded-xl text-xs font-semibold flex items-center gap-2 bg-green-50 text-green-700 border border-green-150";
-        statusBox.innerHTML = `<i class="fa-solid fa-circle-check text-sm"></i> Ulaagaan guuteera! Maallaqa baasuu dandeessu.`;
-        fields.classList.remove('hidden');
-    }
-}
-
-function submitToAdminBoard() {
-    const name = document.getElementById('wd-name').value;
-    const bank = document.getElementById('wd-bank').value;
-    const amount = document.getElementById('wd-amount').value;
-
-    if (!name.trim() || !bank.trim()) {
-        alert("Maaloo dursa maqaa fi lakk. herrega baankii guutaa!");
-        return;
-    }
-
-    // Gara Admin Board-itti tiriika daddabarsuuf (Pending list)
-    const adminList = document.getElementById('admin-receipt-list');
-    if (adminList) {
-        const row = `
-          <tr class="border-b border-gray-100 bg-yellow-50/50">
-            <td class="p-3 font-medium">${name}</td>
-            <td class="p-3">${amount} ETB</td>
-            <td class="p-3"><span class="text-amber-700 font-bold text-[10px] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">Pending / Eeggamaa</span></td>
-          </tr>
-        `;
-        adminList.innerHTML += row;
-    }
-
-    alert("Sent to admin board! Ajajni keessan eeggamaa (Pending) jala jira.");
-    
-    // Unka sana deebisee akka dhoksuuf
-    document.getElementById('withdraw-form-container').classList.add('hidden');
-}
+}  
 
     function toggleSearch() { 
       const searchBar = document.getElementById('search-bar'); 
