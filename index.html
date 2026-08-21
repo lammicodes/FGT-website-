@@ -510,6 +510,81 @@
 
     <!-- UNKA ICCOOTII (HIDDEN SECTION FOR WITHDRAW LOGIC) -->
     <div id="withdraw-form-container" class="hidden space-y-3 border-t pt-3 mt-2">
+<!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM -->
+<div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col justify-between min-h-[550px]">
+  <div>
+    <div class="mb-4">
+      <button onclick="hideAll(); showSection('section-home');" class="flex items-center justify-center w-10 h-10 bg-amber-950 text-white rounded-full shadow-md hover:bg-amber-900 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    
+    <div class="flex items-center gap-3 mb-4">
+      <div class="p-3 bg-amber-50 rounded-xl">
+        <i class="fa-solid fa-users-rectangle text-amber-950 text-xl"></i>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800">Affiliate Program / Afeerraa Daldalaa</h3>
+    </div>
+    
+    <p class="text-gray-600 text-sm mb-4">
+      Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+    </p>
+
+    <!-- KUTAA REVENUE STATS -->
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <div class="p-3 bg-gray-50 border border-gray-150 rounded-xl text-center">
+        <span class="text-[11px] text-gray-500 block font-medium">Namni Afeerrame</span>
+        <span class="text-xl font-bold text-amber-950" id="affiliate-count">12</span>
+      </div>
+      <div class="p-3 bg-gray-50 border border-gray-150 rounded-xl text-center">
+        <span class="text-[11px] text-gray-500 block font-medium">Maallaqa Kuufame</span>
+        <span class="text-xl font-bold text-green-600" id="affiliate-balance">103.60 ETB</span>
+      </div>
+    </div>
+
+    <!-- REFERRAL CODE & SOCIAL MEDIA LINKS -->
+    <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-xl mb-4">
+      <span class="text-[11px] text-amber-900 block font-bold mb-1">🪪 Koodii Afeerraa Keessan (Referral Code)</span>
+      <div class="flex items-center justify-between bg-white p-2 rounded-lg border border-amber-200">
+        <span class="text-sm font-mono font-bold text-amber-950 tracking-wider" id="ref-code-text">FGT-1036</span>
+        <button onclick="navigator.clipboard.writeText('FGT-1036'); alert('Koodiin afeerraa keessan copy ta\'eera!');" class="text-xs text-amber-950 font-bold hover:underline flex items-center gap-1">
+          <i class="fa-solid fa-clipboard"></i> Copy
+        </button>
+      </div>
+      
+      <span class="text-[11px] text-gray-500 block font-medium mt-3 mb-1">🔗 Hiriyoota Keessan Afeeraa (Share via):</span>
+      <div class="flex gap-2">
+        <a href="https://telegram.me" target="_blank" class="w-1/3 flex items-center justify-center p-2 bg-blue-500 text-white rounded-lg text-xs font-bold gap-1 hover:bg-blue-600 transition">
+          <i class="fa-brands fa-telegram"></i> Telegram
+        </a>
+        <a href="https://whatsapp.com" target="_blank" class="w-1/3 flex items-center justify-center p-2 bg-green-500 text-white rounded-lg text-xs font-bold gap-1 hover:bg-green-600 transition">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <button onclick="if(navigator.share) { navigator.share({title:'FGT', text:'Koodii kiyya: FGT-1036', url:'https://vercel.app'}); }" class="w-1/3 flex items-center justify-center p-2 bg-gray-800 text-white rounded-lg text-xs font-bold gap-1 hover:bg-gray-900 transition">
+          <i class="fa-solid fa-share-nodes"></i> Afeeri
+        </button>
+      </div>
+    </div>
+
+    <!-- BUTTON: HOW IT WORKS (DEEBIEE KAN HAMMATAME) -->
+    <button onclick="toggleHowItWorks();" class="w-full border border-amber-600 text-amber-900 py-2 rounded-xl text-xs font-semibold hover:bg-amber-50 transition mb-4">
+      How it works and benefits / Akkamitti hojjeta?
+    </button>
+
+    <!-- DESCRIPTION SECTION (BARREESSAA KEE IBSAA GUUTUU) -->
+    <div id="howItWorksSection" class="hidden p-4 bg-gray-50 border border-gray-150 rounded-xl mb-4 text-xs text-gray-700 space-y-2 leading-relaxed">
+      <p>👉 <strong>Namni 1 nama biroo afeeruun</strong> yoo namni sun login gochuun fayyadamaa tajaajila keenya tahuun mirkanaaye <strong>0.3 birr</strong> per/invitation argata. Yeroo jalqabaaf 100birr ol yoo kuufate nibaafata, sana nooda haga barbaade ykn kan afeeree argate ni baafata.</p>
+      <p>👉 Account isaa irratti hanga inni afeereefi hamma inni qabutu argama, sana booda yoo ulaagaa guutu withdraw ni ajaja, button toftaa kaffaltii (payment method) irratti lakk. herreegaa isaa akka kaahu gaafatama, isas confirm godhuun then pending tahu uadmin yoo argu kaffaltii isaa ni raawwataaf.</p>
+      <p>👉 <strong>Namoonni namni kun afeere illee</strong> akkasuma yoo godhan, kan isaaniitti parsantii 5 (5%) maallaqa withdraw tahee ni argata.</p>
+    </div>
+
+    <!-- BUTTON: WITHDRAW / MAALLAQA BAASI -->
+    <button onclick="processWithdrawRequest();" class="w-full bg-amber-950 text-white py-2.5 rounded-xl font-semibold hover:bg-amber-900 transition text-sm mb-4 flex items-center justify-center gap-2">
+      <i class="fa-solid fa-wallet"></i> Withdraw / Maallaqa Baasi
+    </button>
+
+    <!-- UNKA ICCOOTII (HIDDEN SECTION FOR WITHDRAW LOGIC) -->
+    <div id="withdraw-form-container" class="hidden space-y-3 border-t pt-3 mt-2">
       <div class="p-3 rounded-xl text-xs font-semibold flex items-center gap-2" id="withdraw-status-box"></div>
       <div id="withdraw-fields" class="hidden space-y-2">
         <div>
