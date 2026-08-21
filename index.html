@@ -464,7 +464,43 @@
     <p class="text-gray-600 text-sm mb-4">
       Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
     </p>
+   
+<!-- KUTAA IBSAA (HOW IT WORKS DESCRIPTION) -->
+  <div id="howItWorksSection" class="hidden mt-4 p-4 bg-gray-50 border-l-4 border-amber-500 rounded-xl text-sm leading-relaxed text-gray-700">
+    <h4 class="font-bold text-amber-600 mb-2 text-base">Akkamitti Hojjeta?</h4>
+    <ul class="list-disc pl-4 space-y-2">
+      <li><strong class="text-gray-900">Afeerraa:</strong> Namni ati afeerte yoo galmaa'e, afeerraa tokkoof <span class="text-green-600 font-extrabold">0.3 Birr</span> argattu.</li>
+      <li><strong class="text-gray-900">Yeroo Jalqabaa:</strong> Maallaqni kuufame <span class="text-green-600 font-extrabold">100 Birr</span> yommuu gahu baasuu dandeessu.</li>
+      <li><strong class="text-gray-900">Daangaa Malee:</strong> Sana booda daangaa tokko malee afeertanii baafachuu dandeessu.</li>
+      <li><strong class="text-gray-900">Gadaantee 2ffaa:</strong> Namni ati afeerte sun yommuu maallaqa herrega isaa irraa baafatu, ati <span class="text-green-600 font-extrabold">5% bonus</span> dabalataa argatta!</li>
+    </ul>
+  </div>
 
+  <!-- KUTAA ACCOUNT USER (USER WALLET) -->
+  <div id="affiliateWalletSection" class="hidden mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+    <div class="grid grid-cols-2 gap-2 text-center mb-4">
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Namni Afeerrame</span>
+        <span id="invitedCount" class="text-xl font-black text-amber-600">12</span>
+      </div>
+      <div class="p-2 bg-white border border-gray-100 rounded-xl shadow-sm">
+        <span class="block text-xs text-gray-500 font-bold">Maallaqa Kuufame</span>
+        <span id="walletBalance" class="text-xl font-black text-green-600">103.60 ETB</span>
+      </div>
+    </div>
+
+    <!-- UNKA KAFFALTII -->
+    <div id="withdrawForm" class="space-y-2">
+      <label class="block text-xs text-gray-700 font-bold">Toftaa Kaffaltii / Lakk. Herrega Baankii:</label>
+      <input type="text" id="bankDetails" placeholder="Fakkeenya: CBE - 1000xxxxxxxxx" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-gray-800 text-sm focus:border-amber-500 outline-none">
+      <button onclick="requestWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-2.5 rounded-xl text-sm transition-all shadow-md">
+        Confirm & Submit Request
+      </button>
+      <p id="statusMessage" class="text-center text-sm text-amber-600 hidden mt-1 font-bold">⏳ Status: Pending (Admin is reviewing...)</p>
+    </div>
+  </div>
+</div>
+   
     <!-- KUTAA REVENUE STATS -->
     <div class="grid grid-cols-2 gap-3 mb-4">
       <div class="p-3 bg-gray-50 border border-gray-150 rounded-xl text-center">
@@ -508,8 +544,6 @@
     </div>
   </div>
 </div>
-
-  
    
 <div id="section-admin" class="hidden p-6 max-w-md mx-auto my-4 bg-white rounded-2xl shadow-sm border border-gray-200">
   <!-- BUTTON GARA DUUBATTI AMMA ITTI DABALAME -->
