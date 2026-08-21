@@ -438,37 +438,76 @@
           </div> 
         </div> 
       </div> 
- 
+
       <button onclick="showSection('section-select-service')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-2 mt-4"> 
         <span>Select the Service You Need</span> 
         <i class="fa-solid fa-check-double"></i> 
       </button> 
     </section> 
 
-    <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM (STYLE WALSIMMATE) -->
-    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-md max-w-xl mx-auto my-6 text-gray-800 font-sans">
-      <div class="flex items-center gap-3 mb-4">
-    <!-- Icon bifa keelloo ifaa akkuma warra gubbaa -->
-    <div class="p-3 bg-amber-50 rounded-xl text-amber-500">
-      <i class="fa-solid fa-users-rectangle text-2xl"></i>
+    <!-- TAJAAJILA 4FFAA: AFFILIATE PROGRAM -->
+<div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col justify-between min-h-[450px]">
+  <div>
+    <div class="mb-4">
+      <button onclick="hideAll(); showSection('section-home');" class="flex items-center justify-center w-10 h-10 bg-amber-950 text-white rounded-full shadow-md hover:bg-amber-900 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
     </div>
-    <h3 class="text-lg font-bold text-gray-900">Affiliate Program / Afeerraa Daldalaa</h3>
-  </div>
-  <!-- Barruun kun guraacha waan ta'eef qulqulluun dubbifama -->
-  <p class="text-gray-600 text-sm mb-4">
-    Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
-  </p>
-
-  <!-- BUTTONS -->
-  <div class="flex flex-col gap-3">
-    <button onclick="toggleAffiliateInfo()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-extrabold py-2.5 px-4 rounded-xl transition-all text-center tracking-wide shadow-sm">
-      EARN MONEY
-    </button>
     
-    <button onclick="toggleHowItWorks()" class="w-full bg-transparent border-2 border-amber-500 text-amber-600 font-bold hover:bg-amber-500/10 py-2 px-4 rounded-xl transition-all text-center text-sm">
-      How it works and benefits / Akkamitti hojjeta?
+    <div class="flex items-center gap-3 mb-4">
+      <div class="p-3 bg-amber-50 rounded-xl">
+        <i class="fa-solid fa-users-rectangle text-amber-950 text-xl"></i>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800">Affiliate Program / Afeerraa Daldalaa</h3>
+    </div>
+    
+    <p class="text-gray-600 text-sm mb-4">
+      Namoota biroo afeeruun maallaqa kuufadhaa! Afeerraa tokkoof kaffaltii fi faayidaa daangaa hin qabne argadhaa.
+    </p>
+
+    <!-- KUTAA REVENUE STATS -->
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <div class="p-3 bg-gray-50 border border-gray-150 rounded-xl text-center">
+        <span class="text-[11px] text-gray-500 block font-medium">Namni Afeerrame</span>
+        <span class="text-xl font-bold text-amber-950" id="affiliate-count">12</span>
+      </div>
+      <div class="p-3 bg-gray-50 border border-gray-150 rounded-xl text-center">
+        <span class="text-[11px] text-gray-500 block font-medium">Maallaqa Kuufame</span>
+        <span class="text-xl font-bold text-green-600" id="affiliate-balance">103.60 ETB</span>
+      </div>
+    </div>
+
+    <!-- BUTTON: WITHDRAW / MAALLAQA BAASI -->
+    <button onclick="processWithdrawRequest();" class="w-full bg-amber-950 text-white py-2.5 rounded-xl font-semibold hover:bg-amber-900 transition text-sm mb-4 flex items-center justify-center gap-2">
+      <i class="fa-solid fa-wallet"></i> Withdraw / Maallaqa Baasi
     </button>
+
+    <!-- UNKA ICCOOTII (HIDDEN SECTION FOR WITHDRAW LOGIC) -->
+    <div id="withdraw-form-container" class="hidden space-y-3 border-t pt-3 mt-2">
+      <div class="p-3 rounded-xl text-xs font-semibold flex items-center gap-2" id="withdraw-status-box">
+        <!-- Mallattoon X ykn ✔️ as keessatti baha -->
+      </div>
+
+      <div id="withdraw-fields" class="hidden space-y-2">
+        <div>
+          <label class="text-[11px] font-bold text-gray-650 block mb-1">Maqaa Guutuu (Name)</label>
+          <input type="text" id="wd-name" class="w-full border border-gray-200 p-2 text-xs rounded-xl focus:outline-none focus:border-amber-950" placeholder="Fakkeenya: Chala Kebede">
+        </div>
+        <div>
+          <label class="text-[11px] font-bold text-gray-650 block mb-1">Herrega Baankii (Bank Account)</label>
+          <input type="text" id="wd-bank" class="w-full border border-gray-200 p-2 text-xs rounded-xl focus:outline-none focus:border-amber-950" placeholder="Fakkeenya: CBE - 1000xxxxxxxx">
+        </div>
+        <div>
+          <label class="text-[11px] font-bold text-gray-650 block mb-1">Hamma Maallaqaa (Amount)</label>
+          <input type="number" id="wd-amount" class="w-full border border-gray-200 p-2 text-xs rounded-xl focus:outline-none focus:border-amber-950" value="103.60" readonly>
+        </div>
+        <button onclick="submitToAdminBoard();" class="w-full bg-green-600 text-white py-2 rounded-xl text-xs font-bold hover:bg-green-700 transition mt-2">
+          Confirm Amount for Admin
+        </button>
+      </div>
+    </div>
   </div>
+</div>
 
   <!-- KUTAA IBSAA (HOW IT WORKS DESCRIPTION) -->
   <div id="howItWorksSection" class="hidden mt-4 p-4 bg-gray-50 border-l-4 border-amber-500 rounded-xl text-sm leading-relaxed text-gray-700">
